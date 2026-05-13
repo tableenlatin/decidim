@@ -123,6 +123,9 @@ fr:
           moderations: Modérations
           process_admins: Administrateurs de la concertation
           steps: Étapes
+          landing_page: Mise en page de la page d'accueil
+        participatory_process_groups_submenu:
+          landing_page: Mise en page de la page d'accueil
       models:
         participatory_process:
           fields:
@@ -264,7 +267,7 @@ fr:
     admin_log:
       participatory_process:
         create: "%{user_name} a créé la concertation %{resource_name}"
-        duplicate: "%{user_name} a dupliqué\" la concertation %{resource_name}"
+        duplicate: '%{user_name} a dupliqué" la concertation %{resource_name}'
         export: "%{user_name} a exporté la concertation %{resource_name}"
         import: "%{user_name} a importé la concertation %{resource_name}"
         publish: "%{user_name} a publié la concertation %{resource_name}"
@@ -272,6 +275,8 @@ fr:
         unpublish: "%{user_name} n'a pas publié la concertation %{resource_name}"
         unpublish_all_members: "%{user_name} a dépublié tous les membres du processus participatif %{resource_name}"
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
+        restore: "%{user_name} a restauré le processus participatif %{resource_name}"
+        soft_delete: "%{user_name} a mis le processus participatif %{resource_name} à la corbeille"
       participatory_process_group:
         create: "%{user_name} a créé le groupe de concertations %{resource_name}"
         unpublish: "%{user_name} a dépublié le groupe de processus participatifs %{resource_name}"
@@ -320,6 +325,31 @@ fr:
           component_settings: Les paramètres de fonctionnalité de la concertation
           updated_at: La dernière date de mise à jour de cet espace
           url: L'URL de l'espace
+          area: The area where the process is taking place
+          created_at: La date de création de cet espace
+          description: Une description longue du processus
+          developer_group: Le groupe de développement de process. This is the organization that is promoting the process.
+          end_date: La date de fin du processus
+          follows_count: Le nombre d'utilisateurs suivant cet espace
+          id: L'identifiant unique du processus
+          local_area: La zone locale de process. This is the organization area where the process is taking place. Il s'agit de la zone de l'organisation où process. This is the organization area where the process is taking place a lieu.
+          meta_scope: Les métadonnées de portée du processus
+          participatory_process_group: Le groupe du processus, le cas échéant
+          participatory_process_type: Le type du processus
+          participatory_scope: La portée participative du processus
+          participatory_structure: La structure participative de process. This is how the process is decided.
+          promoted: Si the process is promoted or not
+          published_at: La date de publication de cet espace
+          reference: La référence unique de l'espace
+          remote_hero_image_url: L'URL de process hero image
+          scope: La portée du processus
+          scopes_enabled: Si the scopes are enabled or not
+          short_description: Une description courte du processus
+          slug: Le slug du processus (utilisé à des fins d'identification, pour l'URL)
+          start_date: La date de début du processus
+          subtitle: Le sous-titre du processus
+          target: La cible de process. This is who is called to participate in the process. Il s'agit de qui est invité à participer à process. This is who is called to participate in the process.
+          title: Le titre de le processus
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -367,15 +397,23 @@ fr:
                   one: 0 - 20%
                   three: 40 - 60%
                   two: 20 - 40%
+                legend: Out of all phases in the process (from selecting issues to supervising execution), in how many does the public have the ability to make decisions or take executive action?
               citizen_influence_level:
                 legend: Dans quelle mesure les citoyens détiennent-ils un pouvoir décisionnel dans ce processus, allant de la simple réception d’informations jusqu’à l’influence décisive sur les décisions et la gestion des ressources ?
+                options:
+                  five: Participants were involved in the decision-making and the management of resources or the implementation
+                  four: Participants were involved decisively in the decision-making
+                  one: Participants received information from the organisation
+                  three: Participants were involved to share decision-making power
+                  two: Participants were asked in a consultative manner or gave feedback to the organisation
+              name: Citizen influence
             inclusiveness:
               digital_support_offered:
                 legend: Un accompagnement numérique a-t-il été offert aux participants?
                 options:
-                  five: 'Oui'
+                  five: Oui
                   two_five: Partiellement
-                  zero: 'Non'
+                  zero: Non
               functional_diversity_invited:
                 legend: Comment le degré de diversité des agents et des participants est-il évalué par rapport à la population de référence dans le processus?
                 options:
@@ -392,15 +430,17 @@ fr:
               mobility_meeting_access:
                 legend: Les lieux des réunions en face à face étaient-ils accessibles aux personnes à mobilité réduite?
                 options:
-                  five: 'Oui'
+                  five: Oui
                   two_five: Partiellement
-                  zero: 'Non'
+                  zero: Non
               participation_scheduling_times:
                 legend: Les séances de participation ont été organisées à des horaires variés (matin, midi, après-midi, soir et week-end).
                 options:
-                  five: 'Oui'
+                  five: Oui
                   two_five: Partiellement
-                  zero: 'Non'
+                  zero: Non
+              description: Inclusivity according to cultural origin and functional diversity.
+              name: Inclusiveness
             informativeness:
               information_provided:
                 options:
@@ -408,6 +448,7 @@ fr:
                   one: Presque jamais
                   two_five: Généralement
                   zero: Jamais
+                legend: Has information been provided regarding the participants capacity to influence the topic under discussion? (both in the communication of the process and invitations, as well as at the beginning of each debate session)
               name: Clarté de l'information
               published_information_clarity:
                 legend: Est-ce que les informations publiées apportent de la clarté sur les mécanismes de prise de décision? (par exemple vote, consensus, négociations directes)
@@ -416,6 +457,13 @@ fr:
                   one: Clarté insuffisante
                   two_five: Clarté suffisante
                   zero: Aucune clarté
+            announcement:
+              body_html: |-
+                <ul>
+                  <li>These are calculated automatically from Decidim data. They will become visible once you publish the content block.</li>
+                  <li>These are based on your responses in the following form. They will be visible once you have answered all the questions.</li>
+                </ul>
+              title: 'This content block includes two types of metrics:'
           highlighted_processes:
             active: Actif(s)
             all: Tout
@@ -497,15 +545,32 @@ fr:
         democratic_quality_stats:
           automatic_metrics:
             description: Ces indicateurs sont obtenus automatiquement à partir des données de la plate-forme.
+            indicators:
+              hybridization: Hybridization
+              hybridization_tooltip: This indicator measures the level of combination between online and offline spaces during the process
+              influence: Citizen influence
+              influence_tooltip: This indicator measures the level of citizen influence on the accepted proposals and the outcomes of the process.
+              traceability: Traceability
+              traceability_tooltip: This indicator measures the transparency and traceability of the participatory process. It reflects how easily participants can follow the evolution of proposals and verify institutional actions through published records.
+              transparency: Responsiveness
+              transparency_tooltip: This indicator measures the level of responsiveness of the organization to participant input. It reflects their engagement through official responses and implemented decisions.
+            name: Automatic metrics
           global_score:
             name: Score global
             note: "*Les valeurs indicatives sont mesurées sur une échelle de 1 à 5, où 1 représente le plus bas et 5 le plus haut indicateur de qualité."
             tooltip: Calculée en tant que moyenne de toutes les dimensions
+            description_html: Below is a set of indicators used to assess the democratic quality of this participatory process. For more details on how they are calculated, see the <a href="%{info_url}">information page on democratic quality indicators</a>.
           name: Indicateur de qualité
           qualitative_metrics:
             indicators:
               informativeness: Clarté de l'information
               informativeness_tooltip: Mesure le niveau de clarté et d'information fournis dans le processus.
+              citizen_influence: Citizen influence
+              citizen_influence_tooltip: Measures the level of participant impact on decision-making.
+              inclusiveness: Inclusiveness
+              inclusiveness_tooltip: Assesses whether diverse interested parties are fairly represented.
+            description: These indicators are obtained from the answers to a self-assessment survey filled in by the platform's administrators.
+            name: Self-assessment metrics
         extra_data:
           name: Phase & durée
         hero:
@@ -570,6 +635,187 @@ fr:
       static_pages:
         democratic_quality_indicators:
           title: Indicateurs de qualité démocratique
+          content: |-
+            <h2>Indicator system to measure quality indicator in Decidim.</h2>
+
+            <h3>Introduction</h3>
+            <p>Democratic quality is a core principle of Decidim. To uphold this, we have developed a system of indicators that help evaluate the quality of participatory processes on the platform. This article explains how these indicators are calculated.</p>
+
+            <h3>How Are Indicators Calculated?</h3>
+            <p>We have defined two methods for collecting quality indicators:</p>
+
+            <ol>
+              <li><strong>Automatic Metrics:</strong> These are calculated directly from Decidim platform data.</li>
+              <li><strong>Self-Assessment Questions:</strong> These are based on a form filled out by an administrator.</li>
+            </ol>
+
+            <p>Each indicator is expressed as a percentage (n/total). This percentage is then converted to a score on a 1-to-5 scale:</p>
+
+            <ul>
+              <li>1 = 0–20%</li>
+              <li>2 = 20–40%</li>
+              <li>3 = 40–60%</li>
+              <li>4 = 60–80%</li>
+              <li>5 = 80–100%</li>
+            </ul>
+
+            <br><br>
+            <h3>Automatic Metrics</h3>
+            <p>These metrics are automatically calculated from data available in Decidim. They are evaluated per participatory process and can be made public by administrators, so all participants can access it.</p>
+
+            <p>We have defined four main indicators: Citizen Influence, Hybridization, Responsiveness and Traceability:</p>
+
+            <h3>Citizen Influence</h3>
+
+            <p>This indicator measures the level of citizen influence on the accepted proposals and the outcomes of the process.</p>
+
+            <ul>
+              <li>
+                Citizen influence on proposals
+                <ul>
+                  <li>Percentage of proposals accepted (n/total)</li>
+                  <li>Percentage of approved <em>citizen</em> proposals over total of citizen proposals (total citizen influence on proposals approved)</li>
+                  <li>Percentage of approved citizen proposals over total of approved proposals (relative citizen influence on approved proposal)</li>
+                </ul>
+              </li>
+              <li>
+                Citizen influence on outputs/results
+                <ul>
+                  <li>Percentage of results linked to citizen proposals out of the total of results (total citizen influence on outputs)</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>Hybridization</h3>
+
+            <p>This indicator measures the level of combination between online and offline spaces during the process.</p>
+
+            <ul>
+              <li>Is a meeting component active? (Yes=5, No=0)</li>
+              <li>Are there face to face meetings? (Yes=5, No=0)</li>
+              <li>Are there online meetings ? (Yes=5, No=0)</li>
+              <li>Are there hybrid meetings? (Yes=5, No=0)</li>
+              <li>Are there proposals created from meetings? (Yes=5, No=0)</li>
+            </ul>
+
+            <h3>Responsiveness</h3>
+
+            <p>This indicator measures the level of responsiveness of the organization to participant input. It reflects their engagement through official responses and implemented decisions.</p>
+
+            <ul>
+              <li>Percentage of proposals with answers (n/total) – Proposal institutional responsiveness</li>
+              <li>Percentage of results completed at 100% (n/total)</li>
+            </ul>
+
+            <h3>Traceability</h3>
+
+            <p>This indicator measures the transparency and traceability of the participatory process. It reflects how easily participants can follow the evolution of proposals and verify institutional actions through published records.</p>
+
+            <ul>
+              <li>Number of Proposals with history (n/total)</li>
+              <li>Percentage of results linked to proposals (n/total)</li>
+              <li>Percentage of meetings closed with minutes published (n/total)</li>
+              <li>Activation of the open data module (dichotomic: 0 or 5)</li>
+              <li>Percentage of proposals related to budgets (n/total)</li>
+            </ul>
+
+            <br><br>
+            <h3>Self-Assessment Metrics</h3>
+
+            <p>In addition to automatic metrics, we propose the use of a <strong>self-evaluation form</strong> to assess the qualitative dimensions of each participatory process. This form will be completed by platform administrators at the end of each process, and the responses will be publicly displayed in the indicators content block.</p>
+
+            <p>These questions aim to capture aspects of democratic quality that cannot be assessed through quantitative data alone. It is important to note that the responses to this survey are biased by the opinion of the platform administrators.</p>
+
+            <br><br>
+            <h3>Self-assessment questions</h3>
+
+            <p>The questions that make up the self-assessment form answered by the administrators, as well as the values associated with each answer, are set out below.</p>
+
+            <h4>Informativeness</h4>
+
+            <ol>
+              <li>Does the published information provide clarity on the decision-making mechanisms (e.g., voting, consensus, direct negotiations)?
+                <ul>
+                  <li>No clarity = 0</li>
+                  <li>Low clarity = 1</li>
+                  <li>Sufficient clarity = 2,5</li>
+                  <li>Full clarity = 5</li>
+                </ul>
+              </li>
+              <li>Has information been provided regarding the participants' capacity to influence the topic under discussion (both in the communication of the process and invitations, as well as at the beginning of each debate session)?
+                <ul>
+                  <li>Never = 0</li>
+                  <li>Almost never = 1</li>
+                  <li>Usually = 2,5</li>
+                  <li>Always = 5</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h4>Citizens influence</h4>
+
+            <ol>
+              <li>Assessment of the degree of participation in the process
+                <ul>
+                  <li>Participants received information from the organisation. = 1</li>
+                  <li>Participants were asked in a consultative manner or gave feedback to the organisation. = 2</li>
+                  <li>Participants were involved to share decision-making power. = 3</li>
+                  <li>Participants were involved decisively in the decision-making. = 4</li>
+                  <li>Participants were involved in the decision-making and the management of resources or the implementation. = 5</li>
+                </ul>
+              </li>
+              <li>Percentage of phases with 0-5 citizen decisional intervention.
+                <p>Out of all phases in the process (from selecting issues to supervising execution), in how many does the public have the ability to make decisions or take executive action?</p>
+                <ul>
+                  <li>0-20% = 1</li>
+                  <li>20-40% = 2</li>
+                  <li>40-60% = 3</li>
+                  <li>60-80% = 4</li>
+                  <li>80-100% = 5</li>
+                </ul>
+              </li>
+            </ol>
+
+            <h4>Inclusiveness</h4>
+
+            <ol>
+              <li>How is the degree of diversity of the agents and participants assessed with respect to the population of reference in the process?
+                <ul>
+                  <li>None = 0</li>
+                  <li>Low = 1</li>
+                  <li>Sufficient = 2,5</li>
+                  <li>Good = 5</li>
+                </ul>
+              </li>
+              <li>In how many languages has the process been communicated?
+                <ul>
+                  <li>One language = 1</li>
+                  <li>Less than half of the languages spoken in the community = 2,5</li>
+                  <li>More than half of the languages spoken in the community = 5</li>
+                </ul>
+              </li>
+              <li>Were the venues of the face-to-face meetings accessible to people with reduced mobility?
+                <ul>
+                  <li>No = 0</li>
+                  <li>Partially = 2,5</li>
+                  <li>Yes = 5</li>
+                </ul>
+              </li>
+              <li>The participation sessions have been scheduled at varied times (morning, midday, afternoon, evening, and weekends).
+                <ul>
+                  <li>No = 0</li>
+                  <li>Partially = 2,5</li>
+                  <li>Yes = 5</li>
+                </ul>
+              </li>
+              <li>Has digital support been offered to the participants?
+                <ul>
+                  <li>No = 0</li>
+                  <li>Partially = 2,5</li>
+                  <li>Yes = 5</li>
+                </ul>
+              </li>
+            </ol>
     statistics:
       processes_count: Concertations
       processes_count_tooltip: Le nombre de processus participatifs qui sont accessibles au public.

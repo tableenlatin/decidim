@@ -261,6 +261,7 @@ fr:
             send_to_technical_validation: Envoyer à la validation technique
             success: La pétition a été envoyée à la validation technique.
             update: Mettre à jour
+            title: À propos de cette initiative
           form:
             attachments_title: Pièces jointes
             settings: Paramètres
@@ -269,6 +270,7 @@ fr:
             actions_title: Action
             preview: Aperçu
             print: Impression
+            title: Initiatives
           initiative_attachments:
             documents: Documents
             edit: Modifier
@@ -286,6 +288,7 @@ fr:
         initiatives_settings:
           edit:
             update: Mettre à jour
+            title: Paramètres de l'initiative
           form:
             comments: Les plus commentées
             date: Les plus récentes
@@ -310,14 +313,17 @@ fr:
         initiatives_types:
           create:
             error: Un problème est survenu lors de la création du type de pétition.
+            success: Un nouveau type d'initiative a été créé avec succès. Vous devez définir au moins une portée pour ce type d'initiative afin qu'il puisse être utilisé.
           destroy:
             success: Le type de pétition a été supprimé avec succès.
           edit:
             update: Mettre à jour
+            title: Modifier le type d'initiative
           form:
             child_scope_threshold_enabled_help_html: 'Cette option de configuration ne prend pas en charge les votes hors-ligne, elle permet d''activer des sous-secteurs et fonctionne avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner cette autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les secteurs doivent être configurés de manière hiérarchique : 1 Parent - N Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, consultez la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentation sur l''administration des initiatives</a>.'
             only_global_scope_enabled_help_html: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configuré la portée globale comme votre secteur parent. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, consultez la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentation sur l'administration des initiatives</a>.
             options: Paramètres
+            signature_workflow_settings: Paramètres du flux de signature
           initiative_type_scopes:
             title: Secteurs pour ce type de pétition
           new:
@@ -325,6 +331,9 @@ fr:
             title: Nouveau type de pétition
           update:
             success: Le type de pétition a été mis à jour avec succès.
+            error: Un problème est survenu lors de la mise à jour du type d'initiative.
+          index:
+            title: Types d'initiative
       admin_log:
         initiative:
           publish: "%{user_name} a publié la pétition %{resource_name}"
@@ -343,6 +352,7 @@ fr:
         open: Ouverte
         rejected: Pas assez de signatures
         validating: Validation technique
+        created: Brouillon
       application_helper:
         filter_state_values:
           accepted: Assez de signatures
@@ -372,8 +382,15 @@ fr:
           fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
           select_area: Sélectionnez une zone
           select_scope: Sélectionnez une portée
+          confirm_discard: Êtes-vous sûr de vouloir abandonner cette initiative ?
+          discard: Abandonner l'initiative
+          more_information: Plus d'informations
         finish:
           back: Retour
+          callout_text_created: Félicitations ! Votre initiative a été créée avec succès.
+          callout_text_validating: Votre initiative a été envoyée avec succès pour validation technique.
+          go_to_initiatives: Aller aux initiatives
+          publish_helper_text_html: Rappelez-vous que pour que votre initiative soit publiée, elle doit être techniquement validée pour examen par un administrateur.
         previous_form:
           back: Retour
         select_initiative_type:
@@ -383,6 +400,32 @@ fr:
           new: Créer une nouvelle pétition
           select: Créer une pétition
           verification_required: Vérifiez votre compte pour créer une pétition
+          consult_existing_initiatives: Consulter les initiatives existantes
+          continue: Continuer
+          select_initiative_type_help_html: "<p>Les initiatives sont un moyen par lequel les participants peuvent intervenir pour que l'organisation entreprenne des actions en défense de l'intérêt général. Quelle initiative souhaitez-vous lancer ?</p>"
+          show_less: Voir moins
+          show_more: Voir plus
+          subtitle: Quelle initiative souhaitez-vous promouvoir ?
+        committee_member:
+          approve: Approuver
+          confirm_approve: Êtes-vous sûr de vouloir approuver ce membre ?
+          confirm_revoke: Êtes-vous sûr de vouloir révoquer ce membre ?
+          revoke: Révoquer
+        promotal_committee:
+          individual_help_text: Votre initiative a été créée et est enregistrée comme brouillon. Vous devez maintenant ajouter des personnes au Comité de promotion.
+          invite_link_title: Lien pour inviter des personnes
+          promoters_committee_help_2: Rappelez-vous que pour que votre initiative soit publiée, vous devez compléter les informations requises et l'envoyer en validation technique pour examen par un administrateur.
+          promoters_committee_help_html: Avant d'envoyer votre initiative en validation technique, vous devez ajouter %{committee_members_left} membres supplémentaires au comité de promotion, vous avez <strong>%{committee_members_count}/%{committee_size}</strong>.
+          promoters_committee_title: Comité de promotion
+        return_to_initiatives_button:
+          return_initiatives_html: Passer pour le moment et <a href="%{initiatives_path}">retourner aux initiatives</a>
+        send_to_technical_validation_button:
+          button: Envoyer en validation technique
+          confirm: Vous êtes sur le point d'envoyer l'initiative pour qu'un administrateur l'examine et la publie. Une fois publiée, vous ne pourrez plus la modifier. Êtes-vous sûr ?
+        share_committee_link:
+          invite_to_committee_help: Lien pour inviter les personnes qui feront partie de la Commission de promotion.
+          invite_to_committee_help_2: Ce type d'initiative citoyenne requiert un comité de promotion composé d'au moins %{committee_size} membres (certificateurs). Vous devez partager le lien suivant avec les autres personnes qui font partie de cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
+          more_information: Plus d'informations
       edit:
         accept: Accepter la pétition
         back: Retour
@@ -435,6 +478,7 @@ fr:
                 prompt: Type de document
               document_type_and_number:
                 label: Type et numéro de document
+                help_text: Le numéro de document correspond au document utilisé dans la vérification du recensement.
               gender:
                 options:
                   man: Homme
@@ -444,6 +488,7 @@ fr:
           continue: Valider vos données
           help: S'il vous plaît, remplissez les champs suivants avec vos données personnelles pour signer la pétition.
           invalid_data: Certaines des données personnelles fournies pour vérifier votre identité ne sont pas valides.
+          invalid_authorization: Les données fournies pour procéder à l'action ne sont pas compatibles avec vos autorisations existantes ou vous devez créer une autorisation accordée.
         finish:
           back_to_initiative: Retour à la pétition
           title: Vous avez signé la pétition
@@ -550,6 +595,9 @@ fr:
           count:
             one: Signature
             other: Signatures
+        pending_initiatives:
+          description: Ces initiatives ne sont pas encore publiques. Veuillez les examiner et les soumettre à validation technique pour qu'elles puissent être rendues publiques.
+          title: Initiatives en brouillon et en attente
       initiatives_mailer:
         creation_subject: Votre pétition '%{title}' a été créée
         initiative_link:
@@ -580,16 +628,31 @@ fr:
           open: Ouverte
           rejected: Pas assez de signatures
           validating: Validation technique
+          created: Brouillon
       signatures:
         workflows:
           dummy_signature_handler:
             description: Signature qui prend les informations personnelles de l'utilisateur, valide l'autorisation et vérifie le code SMS
+            name: Gestionnaire de signature factice
+          dummy_signature_with_personal_data_handler:
+            description: Signature qui prend uniquement les informations personnelles de l'utilisateur et les valide
+            name: Gestionnaire de signature factice avec données personnelles
+          dummy_signature_with_sms_handler:
+            description: Signature qui valide uniquement le numéro de téléphone en cherchant une autorisation existante associée et vérifie le code SMS
+            name: Gestionnaire de signature factice avec SMS uniquement
+          ephemeral_dummy_signature_handler:
+            description: Signature éphémère qui prend les informations personnelles de l'utilisateur, valide l'autorisation et vérifie le code SMS
+            name: Gestionnaire de signature factice éphémère
+          legacy_signature_handler:
+            description: Gestionnaire de signature basé sur l'ancienne fonctionnalité de signature incluant la collecte des données personnelles, l'étape SMS et la validation de l'autorisation avec dummy_authorization_handler. Modifiez n'importe quel paramètre pour adapter à la configuration utilisée
+            name: Gestionnaire de signature hérité
       states:
         accepted: Acceptées
         expired: Expirées
       unavailable_scope: Portée indisponible
       update:
         success: La pétition a été mise à jour avec succès.
+        error: Un problème est survenu lors de la mise à jour de l'initiative.
     menu:
       initiatives: Pétitions
     resources:
@@ -600,14 +663,45 @@ fr:
       initiatives_type:
         actions:
           title: Actions
+          create: Créer une initiative
     statistics:
       initiatives_count: Pétitions
       initiatives_count_tooltip: Le nombre de pétitions citoyennes publiées.
+    open_data:
+      help:
+        initiatives:
+          answer: La réponse que ce/cette initiative a reçue (le cas échéant)
+          answer_url: L'URL de answer (if any)
+          answered_at: La date de la réponse (le cas échéant)
+          area: Le domaine de cette initiative
+          authors: Les auteurs de cette initiative
+          comments_count: Le nombre de comments that que ce/cette initiative a
+          created_at: La date de création de cet espace
+          description: La description de l'initiative
+          first_progress_notification_at: La date à laquelle the first progress notification a été sent
+          follows_count: Le nombre d'utilisateurs suivant cet espace
+          offline_votes: Le nombre de signatures that this inititative received outside of this platform
+          online_votes: Le nombre de signatures that this initiative received online (directly through the platform)
+          published_at: La date de publication de cet espace
+          reference: La référence unique de l'espace
+          scope: La portée de l'initiative
+          second_progress_notification_at: La date à laquelle the second progress notification a été sent
+          signature_end_date: La date à laquelle the signature collection period ends
+          signature_start_date: La date à laquelle the signature collection period started
+          signature_type: Le type de signature collection (online or in-person)
+          signatures: Le nombre de signatures that que ce/cette initiative a
+          state: L'état actuel de cette initiative
+          title: Le titre de l'initiative
+          type: Le type de l'initiative
+          updated_at: La dernière date de mise à jour de cet espace
+          url: L'URL de l'espace
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Complétez votre pétition
         select_initiative_type: Sélectionnez le type de pétition
+        finish: Validation technique
+        promotal_committee: Rechercher des promoteurs
       initiative_signature_creation_header:
         help_information_html: Pour signer la pétition <strong>%{initiative_title}</strong> promue par %{initiative_author} , vous devez fournir des informations qui rendront la signature de la pétition juridiquement contraignante. Aucune information vous concernant ne sera rendue publique.
         verify_your_identity: Vérifiez votre identité

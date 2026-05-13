@@ -98,6 +98,9 @@ fr:
             import_to_proposal_text: Cette proposition <span "resource-link">%{link} a été créée</span>
             merge_to_proposal_text: 'Cette proposition a été créée : %{link}'
             split_to_proposal_text: 'Cette proposition a été créée : %{link}'
+            import_from_proposal_text: 'Cela est devenu cette proposition : %{link}'
+            merge_from_proposal_text: 'Cela est devenu cette proposition : %{link}'
+            split_from_proposal_text: 'Cela est devenu cette proposition : %{link}'
       decidim/proposals/collaborative_draft:
         one: Brouillon collaboratif
         other: Brouillons collaboratifs
@@ -251,7 +254,9 @@ fr:
             likes_enabled: Soutiens activés
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
-            publish_answers_immediately_help_html: "Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.\nPour plus d'informations sur le fonctionnement de cette action, voir <a href=\"https://docs.decidim.org/en/admin/components/proposals/answers#_publication\" target=\"_blank\">la page de documentation sur les réponses aux propositions</a>."
+            publish_answers_immediately_help_html: |-
+              Notez que si vous répondez à une proposition sans que cette case soit activée, vous devrez publier la réponse manuellement en sélectionnant la proposition et en utilisant l'action de publication.
+              Pour plus d'informations sur le fonctionnement de cette action, voir <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">la page de documentation sur les réponses aux propositions</a>.
             votes_blocked: Votes bloqués
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
@@ -334,6 +339,8 @@ fr:
         liking_enabled:
           email_intro: 'Vous pouvez soutenir les propositions dans %{participatory_space_title}! Commencer à participer sur cette page :'
           email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez vous désinscrire des notifications en suivant le lien précédent.
+          email_subject: Le bouton J'aime des propositions a démarré pour %{participatory_space_title}
+          notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">aimer des propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -379,6 +386,11 @@ fr:
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous pouvez désormais voter pour les propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        proposal_update_taxonomies:
+          email_intro: 'Un administrateur a mis à jour les taxonomies de votre proposition « %{resource_title} », consultez-la sur cette page :'
+          email_outro: Vous avez reçu cette notification car vous êtes l'auteur de la proposition.
+          email_subject: Les taxonomies de la proposition %{resource_title} ont été mises à jour
+          notification_title: Les taxonomies de la proposition <a href="%{resource_path}">%{resource_title}</a> ont été mises à jour par un administrateur.
     gamification:
       badges:
         accepted_proposals:
@@ -386,8 +398,8 @@ fr:
           - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
           - Essayez de faire des propositions qui peuvent être réalisées. De cette façon, ils sont plus susceptibles d'être acceptés.
           description: Ce badge est attribué lorsque vous participez activement à de nouvelles propositions et que celles-ci sont acceptées.
-          description_another: '%{score} des propositions de cet utilisateur ont été acceptées.'
-          description_own: '%{score} de vos propositions ont été acceptées.'
+          description_another: "%{score} des propositions de cet utilisateur ont été acceptées."
+          description_own: "%{score} de vos propositions ont été acceptées."
           name: Propositions acceptées
           next_level_in: Vous atteindrez le niveau suivant lorsque %{score} propositions supplémentaires seront acceptés !
           unearned_another: Aucune proposition de cet auteur n'a encore été acceptée.
@@ -426,6 +438,43 @@ fr:
           follows_count: Le nombre de personnes qui suivent cette proposition
           state_published_at: Un horodatage de l'état de la proposition lorsqu'elle est publiée
           updated_at: La date de la dernière mise à jour de la proposition
+          address: L'adresse de la proposition si proposal a un emplacement physique
+          answer: La réponse à la proposition si elle a été répondue
+          answered_at: La date à laquelle this proposal a été answered
+          attachments: Le nombre de attachments que ce/cette proposal a
+          author: Les données de l'auteur de cette proposal
+          body: Le corps de la proposition
+          comments: Le nombre de les commentaires que ce/cette proposal a
+          component: Le composant auquel la proposition est rattaché
+          id: L'identifiant unique pour le/la proposal
+          is_amend: Si ce/cette proposal est ammedning another proposal
+          latitude: La latitude de la proposition si elle a un emplacement physique
+          likes: Le nombre de likes ("likes") que ce/cette proposal a
+          longitude: La longitude de la proposition si elle a un emplacement physique
+          meeting_urls: Le/la URLs of the meetings où ce/cette proposal a été rejeté
+          original_proposal: La référence de la proposal originale s'il s'agit d'un amendement
+          participatory_space: L'espace (par ex. processus participatif ou assemblée) auquel ce/cette proposal appartient
+          published_at: La date à laquelle this proposal a été published
+          reference: L'identifiant unique de resource in this platform
+          related_proposals: Les proposals liés à la proposition
+          state: Le statut de cette proposal (e.g. "Accepted")
+          taxonomies: The taxonomies that this proposal belongs to
+          title: Le titre de la proposition
+          url: L'URL où ce/cette proposal peut être trouvé(e)
+          votes: Le nombre de les votes que ce/cette proposal a
+          withdrawn: Si this proposal has been withdrawn
+          withdrawn_at: When this proposal was withdrawn
+        proposal_comments:
+          alignment: Si ce/cette comment était favorable, contre ou neutre
+          author: Le nom de the participant that made this comment
+          body: Le commentaire lui-même
+          commentable_id: L'identifiant unique de commentable
+          commentable_type: Le type de commentable (if it was a result, a proposal, etc.)
+          created_at: La date à laquelle this comment a été created
+          depth: La position de ce/cette comment dans l'arborescence des comments (s'il s'agit d'une réponse ou d'une réponse à une réponse)
+          id: L'identifiant de ce/cette comment
+          locale: La locale (langue) du participant lorsqu'il a laissé ce/cette comment
+          root_commentable_url: L'URL de resource that ties to this comment
     participatory_spaces:
       highlighted_proposals:
         see_all: Voir toutes les propositions
@@ -469,6 +518,9 @@ fr:
           notify_success:
             body: Propositions importées avec succès depuis le composant %{origin_component_name} vers le composant %{target_component_name} . Vous pouvez consulter les résultats dans l'interface d'administration.
             subject: Les propositions ont été importées avec succès
+            added_proposals:
+              one: Une proposition a été importée.
+              other: "%{count} propositions ont été importées."
         imports:
           label:
             answers: Importer des réponses depuis un fichier
@@ -483,6 +535,21 @@ fr:
           title:
             answers: Importer des réponses à des propositions depuis un fichier
             proposals: Importer des propositions depuis un fichier
+          help:
+            answers: |
+              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files (other columns will be ignored):
+              <ul>
+              <li><b>id:</b> ID of the proposal to answer</li>
+              <li><b>state:</b> One of "accepted", "evaluating", or "rejected"</li>
+              <li><b>answer/en:</b> Answer on English language. This will depend on your platform language configuration.</li>
+              </ul>
+            proposals: |
+              The file must have the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              <ul>
+              <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
+              <li><b>body/en:</b> Body on English language. This will depend on your platform language configuration.</li>
+              <li><b>taxonomies/ids:</b> ID for the Taxonomies (if more than one, separate with a comma)</li>
+              </ul>
         models:
           proposal:
             name: Proposition
@@ -557,6 +624,8 @@ fr:
           answer:
             invalid: Une erreur s'est produite lors de la réponse à cette proposition.
             success: La réponse à la proposition a publiée avec succès.
+            bulk_answer_error: Les propositions avec les IDs [%{proposals}] n'ont pas pu être répondues en raison d'erreurs lors de l'application du modèle « %{template} ». Vous pouvez vérifier que le modèle de réponse correspond au format attendu pour ce composant en l'appliquant individuellement.
+            bulk_answer_success: "%{count} propositions seront répondues en utilisant le modèle « %{template} ». Veuillez patienter quelques minutes et actualiser la page pour voir les mises à jour."
           create:
             invalid: Une erreur s'est produite lors de la création de cette proposition.
             success: Proposition créée avec succès.
@@ -585,6 +654,9 @@ fr:
             unassign_from_evaluator: Retirer de l'évaluateur
             unassign_from_evaluator_button: Ne plus assigner
             update: Mettre à jour
+            apply_answer_template: Appliquer le modèle de réponse
+            change_taxonomies: Changer les taxonomies
+            no_templates_available: Aucun modèle disponible
           manage_trash:
             title: Propositions supprimées
           new:
@@ -608,6 +680,16 @@ fr:
             remove_assignment_confirmation: Êtes-vous sûr(e) de vouloir retirer l'évaluateur de cette proposition ?
             title: Répondre à la proposition
             votes_count: Nombre de votes
+            likes: Mentions « J'aime »
+            likes_count: Nombre de J'aime
+            n_more_likes:
+              one: et 1 de plus
+              other: et %{count} de plus
+          update_taxonomies:
+            invalid: 'Ces propositions avaient déjà les taxonomies %{taxonomies} : %{proposals}.'
+            select_a_proposal: Veuillez sélectionner une proposition.
+            select_a_taxonomy: Veuillez sélectionner une taxonomie.
+            success: 'Propositions mises à jour avec succès vers les taxonomies %{taxonomies} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'import des propositions.
@@ -640,6 +722,8 @@ fr:
           create: "%{user_name} a créé la proposition %{resource_name} à partir de la fusion de %{merged_count} propositions dans %{space_name}"
           publish_answer: "%{user_name} a publié la réponse à la proposition %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
+          restore: "%{user_name} a restauré la proposition %{resource_name} dans l'espace %{space_name}"
+          soft_delete: "%{user_name} a déplacé la proposition %{resource_name} vers la corbeille dans l'espace %{space_name}"
         proposal_note:
           create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
       answers:
@@ -710,6 +794,7 @@ fr:
             state: État
             title: Titre
             votes: Votes
+            taxonomies: Taxonomies
         proposal_state:
           css_class: Classe CSS
           title: État
@@ -776,6 +861,7 @@ fr:
           random: Aléatoire
           recent: Les plus récentes
           with_more_authors: Avec le plus d'auteurs
+          most_liked: Plus aimées
         participatory_texts:
           view_index:
             document_index: Index du document
@@ -819,6 +905,7 @@ fr:
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
           vote: Soutenir
+          votes_blocked: Voter
         votes_count:
           count:
             one: Vote
@@ -826,6 +913,8 @@ fr:
         voting_rules:
           already_vote:
             see_other_proposals: Voir les autres propositions
+            description: Rappelez-vous que vous devez encore donner %{number} soutiens entre différentes propositions pour que vos soutiens soient pris en compte.
+            title: Il vous reste %{number} soutiens
           can_accumulate_votes_beyond_threshold:
             description: Chaque proposition peut accumuler plus de %{limit} votes
           proposal_limit:
@@ -836,7 +925,9 @@ fr:
           title: Règles de participation
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
-            votes: '%{number} votes restants'
+            votes: "%{number} votes restants"
+          minimum_votes_per_user:
+            description: Vous devez distribuer un minimum de %{votes} soutiens entre différentes propositions pour que vos soutiens soient pris en compte.
         wizard_aside:
           back: Retour
           back_from_step_1: Retour aux propositions
@@ -866,6 +957,11 @@ fr:
       withdraw:
         errors:
           has_votes: Cette proposition ne peut pas être retirée, car elle a déjà reçu des votes.
+      creation:
+        imported_text: Cela est devenu cette proposition
+        merged_text: Cela est devenu cette proposition
+        splitted_text: Cela est devenu cette proposition
+        text: Cette proposition a été créée
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées

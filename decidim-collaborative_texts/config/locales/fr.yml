@@ -11,6 +11,7 @@ fr:
         suggestion:
           original: Texte original
           replace: Remplacement
+          nodes: Nœuds DOM
         version:
           body: Corps de texte
           draft: Brouillon
@@ -41,11 +42,16 @@ fr:
           draft_options:
             accepting_suggestions: Activer les suggestions dans la prochaine version
             accepting_suggestions_help: Activer les suggestions démarrera une nouvelle série de suggestions pour ce document. Les suggestions actuelles ne seront pas visibles dans la nouvelle version.
+            draft: Version brouillon
+            draft_help_html: Une version brouillon n'est pas publique et peut être modifiée par les administrateurs. Retirez le statut brouillon pour que cette version devienne publique. <strong>Notez que tant que la version brouillon est active, les participants verront la version précédente et ne pourront pas faire de suggestions.</strong>
           edit:
             previous_versions: Versions précédentes
             public_version: Version publique
             title: Modifier les textes collaboratifs
             update: Mettre à jour
+            document_has_suggestions_html: <a href="%{url}">Ce document contient des suggestions</a> et ne peut pas être modifié directement. Veuillez accepter ou rejeter les suggestions afin de générer une nouvelle version brouillon modifiable.
+            draft: Version brouillon
+            version: Version %{version_number}, créée le %{created_at}, a reçu %{suggestions_count} suggestions.
           edit_settings:
             title: Configurer les textes collaboratifs
             update: Mettre à jour
@@ -59,6 +65,8 @@ fr:
           non_draft_options:
             enable_suggestions: Activer les suggestions
             enable_suggestions_help: Activer les suggestions permettra aux participants de faire des suggestions sur cette version.
+            create_draft: Ignorer les suggestions et créer une nouvelle version brouillon
+            draft_help_html: Une version brouillon n'est pas publique et peut être modifiée par les administrateurs. Retirez le statut brouillon pour que cette version devienne publique. <strong>Notez que tant que la version brouillon est active, les participants verront la version précédente et ne pourront pas faire de suggestions.</strong>
           publish:
             invalid: Une erreur s'est produite lors de la publication de ce document.
             success: Document publié avec succès.
@@ -86,6 +94,8 @@ fr:
         version:
           delete: "%{user_name} a supprimé la version du texte collaboratif %{resource_name} de %{space_name}"
           update: "%{user_name} a mis à jour la version du texte collaboratif %{resource_name} dans %{space_name}"
+        suggestion:
+          create: "%{user_name} a suggéré des modifications au texte collaboratif %{resource_name} dans %{space_name}"
       document:
         apply: Appliquer
         cancel: Annuler
@@ -94,13 +104,21 @@ fr:
         restore: Restaurer
         rollout:
           invalid: Il y a eu un problème lors de la création d'une nouvelle version du document (%{errors}).
+          confirm: Cette action créera une nouvelle version brouillon du document et vous serez redirigé vers la page d'édition pour les ajustements finaux. La version actuelle restera publique et les suggestions seront désactivées.
+          new: Créer une nouvelle version brouillon
         save: Suggérer des modifications
         status:
           accepting_suggestions: Pour suggérer des modifications, sélectionnez ou double-cliquez sur le texte que vous souhaitez modifier, puis cliquez sur le bouton « Suggérer des modifications ».
           not_accepting_suggestions: Les suggestions ne sont pas autorisées pour le moment.
           selection_active: Une sélection est active. Veuillez annuler la sélection actuelle pour en faire une nouvelle.
+          draft: Ce document est actuellement en cours d'examen par les administrateurs. Les suggestions ne sont pas autorisées pour le moment, mais vous pouvez consulter les suggestions faites par d'autres participants.
         suggestions_count: "%{count} suggestions"
         toggle: Afficher/masquer les suggestions
+        consolidate:
+          confirm: Cette action consolidera toutes les suggestions acceptées dans une nouvelle version du document. Les suggestions non acceptées seront transférées vers la nouvelle version pour examen ultérieur. Cette action maintiendra l'état d'activation des suggestions.
+          new: Consolider les suggestions acceptées
+        consolidate_counter: La consolidation fusionnera les %{applied} suggestions appliquées et déplacera les %{pending} suggestions en attente vers la nouvelle version.
+        draft_counter: Le brouillon fusionnera les %{applied} suggestions appliquées et ignorera les %{pending} suggestions en attente.
       documents:
         index:
           count:
@@ -121,6 +139,11 @@ fr:
           success: Suggestion créée avec succès.
         errors:
           invalid_nodes: Nœuds sélectionnés non valides.
+          blank_changeset: L'ensemble de modifications ne peut pas être vide.
+      suggestion:
+        add_html: <span class="type">Ajouter :</span> <span class="text">%{text}</span>
+        remove_html: <span class="type">Retirer :</span> <span class="text">%{text}</span>
+        replace_html: <span class="type">Remplacer :</span> <span class="text">%{text}</span>
     components:
       collaborative_texts:
         actions:

@@ -92,6 +92,7 @@ fr:
             success: Projet créé avec succès.
           edit:
             update: Mettre à jour
+            title: Modifier le projet dans %{budget}
           index:
             actions: Actions
             cancel: Annuler
@@ -104,8 +105,8 @@ fr:
             select_for_implementation: Sélectionné pour implémentation
             selected: Sélectionné
             selected_options:
-              'no': 'Non'
-              'yes': 'Oui'
+              'no': Non
+              'yes': Oui
             title: Projets
             update: Mettre à jour
             update_budget_button: Mettre à jour le budget du projet
@@ -113,21 +114,28 @@ fr:
             title: Projets supprimés
           new:
             create: Créer
+            title: Nouveau projet dans %{budget}
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet.
             success: Projet mis à jour avec succès.
           update_budget:
             invalid: 'Ces projets sont déjà dans le même budget ou leur budget est supérieur au montant maximum autorisé : %{errored}.'
             select_a_project: Veuillez sélectionner un projet.
+            success: 'Projets mis à jour avec succès vers le budget %{subject_name} : %{successful}.'
           update_selected:
             invalid:
               selected: 'Ces projets ont déjà été sélectionnés pour une implémentation : %{errored}.'
               unselected: 'Ces projets ont déjà été retirés de la sélection pour une implémentation : %{errored}.'
             select_a_project: Veuillez selectionner un projet.
             select_a_selection: Veuillez sélectionner un état d'implémentation.
+            success:
+              selected: 'Ces projets ont été sélectionnés avec succès pour mise en œuvre : %{successful}.'
+              unselected: 'Ces projets ont été désélectionnés avec succès de la mise en œuvre : %{successful}.'
           update_taxonomies:
             select_a_project: Veuillez sélectionner un projet.
             select_a_taxonomy: Veuillez sélectionner une taxonomie.
+            invalid: 'Les taxonomies %{taxonomies} étaient déjà attribuées à ces projets : %{errored}.'
+            success: 'Projets mis à jour avec succès vers les taxonomies %{taxonomies} : %{successful}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions dans les projets.
@@ -207,6 +215,7 @@ fr:
           fields:
             map: Carte
             title: Titre
+            taxonomies: Taxonomies
       order:
         status:
           continue_voting: Continuer le vote
@@ -214,7 +223,7 @@ fr:
           pending_to_vote_budgets:
             one: Vous pouvez voter dans un autre budget
             other: Vous pouvez voter dans d'autres budgets
-          share_text: "Je viens de voter pour mes projets favoris dans %{space_name}! 🎉 A vous de voter maintenant : %{component_url}"
+          share_text: "Je viens de voter pour mes projets favoris dans %{space_name}! \U0001F389 A vous de voter maintenant : %{component_url}"
           share_vote: Partagez votre vote
           title: Votre vote a été enregistré avec succès
           view_votes:
@@ -324,6 +333,8 @@ fr:
           email_subject:
             one: Vous avez un vote inachevé sur un budget
             other: Vous avez des votes inachevés sur des budgets
+      creation:
+        text: Ils ont été ajoutés à ce budget
     components:
       budgets:
         actions:
@@ -364,6 +375,10 @@ fr:
             workflow_choices:
               all: 'Voter sur tous les budgets : autorise les participants à voter sur tous les budgets.'
               one: 'Voter sur un seul budget : autorise les participants à voter sur un seul budget parmi les budgets proposés.'
+            clear_all: Tout effacer
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
+            taxonomy_filters: Sélectionner les filtres du composant
+            taxonomy_filters_add: Ajouter un filtre
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
@@ -381,6 +396,15 @@ fr:
     download_your_data:
       show:
         projects: Export des projets
+      help:
+        orders:
+          budget: Le budget auquel la commande est liée
+          checked_out_at: La date et l'heure à laquelle the order a été checked out
+          component: Le composant auquel la commande est rattaché
+          created_at: La date et l'heure à laquelle the order a été created
+          id: L'identifiant unique de la commande
+          projects: Les projets sur lesquels la commande a voté
+          updated_at: La date et l'heure à laquelle the order a été updated
     open_data:
       help:
         projects:
@@ -394,6 +418,18 @@ fr:
           title: Le titre du projet
           updated_at: La dernière date de mise à jour du projet
           url: L'URL du projet
+          address: L'adresse du projet (le cas échéant)
+          budget_amount: Le montant total du budget pour ce/cette project
+          comments: Le nombre de les commentaires que ce/cette project has a reçu
+          component: Le composant auquel le projet est rattaché
+          confirmed_votes: Le nombre de confirmed votes que ce/cette project has a reçu
+          created_at: La date et l'heure à laquelle the project a été created
+          description: La description du projet
+          id: L'identifiant unique du projet
+          related_proposal_titles: Les titres des proposals liés
+          related_proposal_urls: Les URLs des proposals liés
+          related_proposals: Les proposals liés à ce/cette project
+          taxonomies: Les taxonomies du projet
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote.

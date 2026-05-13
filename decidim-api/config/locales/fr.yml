@@ -10,3 +10,6 @@ fr:
         too_many_aliases_error: Trop d'alias utilisés. Vous avez utilisé %{size} alias, mais seulement %{limit} sont autorisés.
         unauthorized_field: Vous ne pouvez pas afficher ou modifier le champ %{field} sur %{type} car vous n'avez pas la permission
         unauthorized_object: Vous ne pouvez pas afficher ou modifier ce %{type} car vous n'avez pas les permissions requises
+        invalid_locale: Locale fournie invalide
+        locale_argument_error: Une erreur s'est produite lors du traitement interne des données i18n
+        unauthorized_mutation: Vous n'avez pas la permission d'effectuer cette mutation

@@ -134,6 +134,8 @@ fr:
               title: "%{total} réponses au total"
             show:
               title: 'Réponse #%{number}'
+            export_response:
+              title: réponses_des_participants_au_sondage_%{token}
           separator:
             remove: Retirer
             separator: Séparateur
@@ -179,6 +181,8 @@ fr:
         response:
           max_choices_alert: Il y a trop de choix sélectionnés
           spam_detected: Il y a eu un problème lors de votre réponse au questionnaire. Peut-être avez-vous été trop rapide, pouvez-vous réessayer ?
+          invalid: Un problème est survenu lors de la réponse au formulaire.
+          success: Formulaire répondu avec succès.
         show:
           current_step: Étape %{step}
           empty: Aucune question configurée pour ce formulaire pour le moment.

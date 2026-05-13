@@ -153,6 +153,7 @@ fr:
           onboarding_message_html: Vous êtes presque prêt à %{action} sur l' <strong>%{resource_title}</strong> %{resource_name}. Veuillez vérifier votre compte en complétant les autorisations suivantes.
           pending_verifications: Vérifications en attente
           unauthorized: Vous n'êtes pas autorisé(e) à %{action} dans cette ressource
+          pending_admin_approval_verifications: Vérifications en attente d'approbation administrateur
         renew_modal:
           cancel: Annuler
           continue: Continuer
@@ -165,13 +166,45 @@ fr:
           census:
             new_import:
               submit: Déposer un fichier
+              errors:
+                email_exists: L'adresse e-mail %{email} existe déjà dans l'organisation %{organization}.
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              info: 'Doit être un fichier au format CSV avec une seule colonne contenant l''adresse e-mail :'
+              title: Importer les données du recensement
+              upload_new_census: Téléverser un nouveau recensement
+            create_import:
+              error: Un problème est survenu lors de l'importation du recensement.
+              no_user: Aucun utilisateur trouvé
+              success: "%{count} éléments importés avec succès. Nous traitons les données. Actualisez la page dans quelques minutes pour voir les changements."
+            destroy:
+              success: L'enregistrement de recensement a été supprimé.
+            index:
+              empty: Il n'y a aucune donnée de recensement. Utilisez %{import_csv} pour importer un fichier CSV.
+              no_sign_in: Jamais connecté
+              no_user: Aucun utilisateur trouvé
+              title: Données actuelles du recensement
+            instructions:
+              body: Pour ce faire, vous devez accéder à l'administration système et ajouter les autorisations csv_census à l'organisation
+              title: Vous devez activer le recensement CSV pour cette organisation
+            last_login:
+              no_sign_in: Jamais connecté
+              no_user: Aucun utilisateur
           census_records:
             edit_record:
               save: Sauvegarder
+              title: Modifier l'enregistrement de recensement
             form:
               email: Email
             new_record:
               save: Sauvegarder
+              title: Ajouter un nouvel enregistrement de recensement
+            create_record:
+              success: Enregistrement de recensement ajouté avec succès. Nous traitons les données. Actualisez la page dans quelques minutes pour voir les changements.
+            update_record:
+              invalid: Un problème est survenu lors de la mise à jour de l'enregistrement de recensement.
+              success: Enregistrement de recensement mis à jour avec succès.
           index:
             add_new_record_button: Ajouter un nouvel enregistrement
             authorized: Utilisateur autorisé
@@ -179,8 +212,13 @@ fr:
               actions: Actions
               email: Email
               user_authorized: Utilisateur autorisé ?
+              created_at: Créé le
             import_csv: Importer un CSV
             no_authorized: Utilisateur non autorisé
+          actions:
+            confirm_destroy: Êtes-vous sûr de vouloir supprimer cet enregistrement de recensement ?
+            destroy: Supprimer
+            edit: Modifier
         authorizations:
           new:
             error: Nous n'avons pas pu vérifier votre compte ou vous n'êtes pas dans le recensement de l'organisation.
@@ -195,6 +233,8 @@ fr:
             other: 'La participation est réservée aux participants avec l''un des codes postaux suivants : %{postal_codes}. Votre code postal est %{user_postal_code}.'
       errors:
         no_emails: Le fichier doit contenir des emails
+        invalid_emails: 'Les adresses e-mail suivantes sont invalides : %{invalid_emails}.'
+        wrong_number_columns: "%{expected} colonnes étaient attendues, mais %{actual} ont été trouvées."
       id_documents:
         admin:
           config:
@@ -211,6 +251,7 @@ fr:
             new:
               reject: Rejeter
               verify: Vérifier
+              title: Saisir les données figurant sur l'image
           offline_confirmations:
             create:
               error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de la modifier.
@@ -218,6 +259,7 @@ fr:
             new:
               cancel: Annuler
               verify: Vérifier
+              title: Saisir l'e-mail du participant et les données du document
           pending_authorizations:
             index:
               config: Config
@@ -301,6 +343,12 @@ fr:
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez revérifier le SMS que nous vous avons envoyé.
             success: Félicitations, votre identité a été vérifiée avec succès.
+      admin_log:
+        csv_datum:
+          create: "%{user_name} a créé un nouvel enregistrement de recensement avec l'e-mail %{resource_email}"
+          delete: "%{user_name} a supprimé l'enregistrement de recensement avec l'e-mail %{resource_email}"
+          import: "%{user_name} a importé %{imported_count} enregistrements de recensement"
+          update: "%{user_name} a mis à jour l'enregistrement de recensement avec l'e-mail %{resource_email}"
   errors:
     messages:
       uppercase_only_letters_numbers: à saisir en majuscule avec uniquement des lettres et / ou des chiffres

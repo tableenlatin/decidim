@@ -8,6 +8,9 @@ fr:
         organization_name: Organisation
         organization_url: URL de l'organisation
         redirect_uri: URI de redirection
+        refresh_tokens: Jetons de rafraîchissement
+        refresh_tokens_enabled: Jetons de rafraîchissement activés
+        scopes: Portées disponibles
       organization:
         address: Nom de l'hôte SMTP
         from_email: Adresse e-mail d'envoi des notifications
@@ -51,6 +54,22 @@ fr:
         new_organization: Nouvelle organisation
         save: Sauvegarder
         title: Actions
+        api_user:
+          hidden_secret: Le secret est masqué
+          hide_secret: Masquer le secret
+          secret_can_not_be_shown: le secret de l'API ne peut être vu ou copié qu'après la création
+          show_secret: Afficher le secret
+          shown_secret: Le secret est affiché
+        api_users:
+          create: Créer
+          new: Nouvel utilisateur API
+          remove: Supprimer l'utilisateur
+        confirm_refresh_api_secret: Êtes-vous sûr de vouloir rafraîchir le secret de cet utilisateur API ? Après le rafraîchissement, l'ancien secret sera invalide et ne pourra plus être utilisé.
+        confirm_remove_api_user: Êtes-vous sûr de vouloir supprimer cet utilisateur API ?
+        copied: Copié
+        copy_secret: Copier le secret
+        copy_secret_clarification: Copier le secret dans le presse-papiers
+        refresh_secret: Rafraîchir le secret
       admins:
         create:
           error: Une erreur s'est produite lors de la création d'un nouvel administrateur.
@@ -99,6 +118,7 @@ fr:
         dashboard: Tableau de bord
         oauth_applications: Applications OAuth
         organizations: Organisations
+        api_credentials: Identifiants API
       models:
         admin:
           fields:
@@ -121,6 +141,15 @@ fr:
             name: Nom
             omniauth_settings: Paramètres Omniauth
             smtp_settings: Paramètres SMTP
+        api_user:
+          fields:
+            created_at: Créé le
+            key: Clé
+            name: Nom
+            organization: Organisation
+            secret: Secret
+          validations:
+            name_uniqueness: Un utilisateur API avec ce nom existe déjà.
       oauth_applications:
         create:
           error: Un problème est survenu lors de la création de cette application.
@@ -133,6 +162,30 @@ fr:
           title: Modifier l'application
         form:
           select_organization: Sélectionnez une organisation
+          application_type:
+            confidential:
+              explanation: Applications capables de s'authentifier en toute sécurité auprès du serveur d'autorisation, par exemple en pouvant garder leur client secret enregistré en sécurité. Typiquement une application s'exécutant sur un serveur où le client secret est stocké.
+              name: Confidentiel
+            public:
+              explanation: Applications incapables d'utiliser des client secrets enregistrés, telles que les applications s'exécutant dans un navigateur ou sur un appareil mobile.
+              name: Public
+          application_type_help_html: 'The OAuth client type as defined by <a href="%{client_type_link}" target="_blank">RFC 6749 Section 2.1</a>. Public clients need to implement the PKCE flow as defined by <a href="%{pkce_link}" target="_blank">RFC 7636</a>.
+
+            '
+          refresh_tokens_help_html: 'Refresh tokens are useful in case the token needs a longer lifetime than what is assigned for the access token. Note that <strong>refresh tokens should be used carefully</strong> because they can weaken the security of your users.
+
+            '
+          scopes_explanation:
+            api:read: Permet à l'utilisateur d'effectuer des opérations de requête via l'API GraphQL.
+            api:write: Permet à l'utilisateur d'effectuer des opérations de mutation via l'API GraphQL.
+            profile: Fournit l'accès aux détails du profil de l'utilisateur. Cette portée suffit si l'application OAuth est uniquement utilisée comme fournisseur d'identité ou service d'authentification.
+            user: Capacité d'agir en tant qu'utilisateur connecté avec le jeton donné lors des appels à l'API GraphQL. Ceci est requis pour toutes les opérations api:write ou api:read nécessitant des informations sur l'utilisateur actuel.
+          scopes_help_html: |
+            The selected scopes will be available for the connected applications to request during the authorization process. The user will be presented details about the authorization request when they sign in using OAuth.
+            <br>
+            Different scopes provide different features for the authenticated user using the granted access tokens.
+            <br>
+            <strong>Note:</strong> If you only need to authenticate the users to your external applications, you only need the <strong>profile</strong> scope. Applications interacting with the Decidim API require other scopes as well.
         index:
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
           title: Applications OAuth
@@ -149,22 +202,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
           error_invitation: Il y a eu un problème lors de la création d'une nouvelle organisation. Vérifiez le nom de l'administrateur de votre organisation.
-          success_html: |
-            <p>
-              Organisation créée avec succès. 
-            </p>
-            <ol>
-              <li>Vous devrez peut-être mettre à jour le code de votre application pour autoriser les requêtes à %{host}, vous devez ajouter ce qui suit à la configuration de votre environnement
-              (ex: <code>config/environment/production.rb</code>) ou votre <code>config/application.rb</code>:
-                <p> config.hosts << "%{host}" </p>
-              </li>
-              <li>
-            Une fois cela fait, vous pourrez accéder à votre plateforme via <a href="http://%{host}">http://%{host}</a>
-              </li>
-              <li>
-                Nous vous avons envoyé un e-mail à <b>%{email}</b> que vous devez confirmer.
-              </li>
-            </ol>
+          success_html: "<p>\n  Organisation créée avec succès. \n</p>\n<ol>\n  <li>Vous devrez peut-être mettre à jour le code de votre application pour autoriser les requêtes à %{host}, vous devez ajouter ce qui suit à la configuration de votre environnement\n  (ex: <code>config/environment/production.rb</code>) ou votre <code>config/application.rb</code>:\n    <p> config.hosts << \"%{host}\" </p>\n  </li>\n  <li>\nUne fois cela fait, vous pourrez accéder à votre plateforme via <a href=\"http://%{host}\">http://%{host}</a>\n  </li>\n  <li>\n    Nous vous avons envoyé un e-mail à <b>%{email}</b> que vous devez confirmer.\n  </li>\n</ol>\n"
         csp_settings:
           connect_src: Connecter src
           connect_src_hint: |
@@ -288,6 +326,25 @@ fr:
       titles:
         dashboard: Tableau de bord
         decidim: Decidim
+      api_user:
+        create:
+          error: Échec de la création de l'utilisateur API.
+          success: Utilisateur API créé avec succès. Le secret de l'utilisateur n'est visible qu'après la création. Veuillez le copier et le stocker en sécurité avant de quitter cette page !
+        destroy:
+          success: Utilisateur API supprimé avec succès.
+        refresh:
+          error: Une erreur s'est produite ! Veuillez réessayer plus tard.
+          success: Secret rafraîchi avec succès. Le secret de l'utilisateur n'est visible qu'après la création. Veuillez le copier et le stocker en sécurité avant de quitter cette page !
+      api_users:
+        index:
+          explanation_html: |
+            <p>API users allow integration developers to add administrative machine user accounts to the system. These machine users can act as administrators on the platform to perform updates that normal administrators would perform through the administration panel. A typical use case is an external management platform where an automated script would perform administrative tasks with the platform without a real user having to authenticate to the system. For example, an automation system might want to send answers to proposals in which case we need an integration user to perform this task within this platform.</p>
+            <p>The main difference between these accounts and normal administrator accounts is that these users are meant to be used by machines and therefore their password requirements are different. These users do not need to regularly update their password and changing the account password can happen in a managed way when needed.</p>
+            <p>These credentials are meant to be used by machines. Participant-facing applications should be integrated with <a href="%{oauth_link}">OAuth applications</a>.</p>
+          manage: Gérer les utilisateurs API
+        new:
+          select_organization: Sélectionnez votre organisation
+          title: Créer un nouvel utilisateur API
   layouts:
     decidim:
       system:

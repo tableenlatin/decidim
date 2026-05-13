@@ -85,6 +85,10 @@ fr:
               not_published: Non publiées
               published: Publiées
             title: Publier les réponses
+            description: |-
+              By publishing the questions' responses, you will make them visible to the public.
+              You can select the responses you want to publish by clicking on the checkbox next to each question.
+              You can only publish the following question types: "Single option", "Multiple option", "Matrix (single option)", "Matrix (multiple option)", and "Sorting".
         questions:
           surveys:
             edit:
@@ -120,6 +124,8 @@ fr:
           update:
             invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
+        exports:
+          survey_user_responses: Réponses des participants au sondage
       admin_log:
         survey:
           create: "%{user_name} a créé l'enquête %{resource_name} sur l'espace %{space_name}"
@@ -149,6 +155,9 @@ fr:
             open: Ouverte
       survey_confirmation_mailer:
         export_name: Réponses à l'enquête
+        confirmation:
+          body: Vous avez répondu avec succès au sondage %{questionnaire_title} dans %{participatory_space}
+          subject: Confirmation de réponse au questionnaire %{questionnaire_title}
       surveys:
         filters:
           all: Toutes
@@ -160,3 +169,11 @@ fr:
           closed: Fermée
           open: Ouverte
           questions: questions
+        count:
+          surveys_count:
+            one: "%{count} sondage"
+            other: "%{count} sondages"
+        response:
+          invalid: Un problème est survenu lors de la réponse au sondage.
+          spam_detected: Un problème est survenu lors de la réponse au formulaire. Peut-être avez-vous été trop rapide, pouvez-vous réessayer ?
+          success: Sondage répondu avec succès.

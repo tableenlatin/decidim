@@ -342,6 +342,8 @@ fr:
         conference_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
+          new:
+            title: Dupliquer la conférence
         conference_invites:
           create:
             error: Un problème est survenu lors de l'invitation de l'utilisateur à rejoindre la conférence.
@@ -354,9 +356,11 @@ fr:
             select_user: Sélectionnez l'utilisateur
           index:
             invite_attendee: Inviter un participant
+            title: Invitations
           new:
             explanation: Le participant sera invité à se joindre à une conférence. Si son adresse électronique n'est pas enregistrée, il sera également invité à s'inscrire sur la plateforme.
             invite: Inviter
+            title: Inviter un participant
         conference_speakers:
           form:
             existing_user: Utilisateur existant
@@ -368,6 +372,8 @@ fr:
             title: Conférenciers
           new:
             title: Nouveau conférencier
+          edit:
+            title: Mettre à jour l'intervenant de la conférence
         conference_user_roles:
           edit:
             title: Mettre à jour l'administrateur de la conférence
@@ -385,6 +391,8 @@ fr:
               one: Il y a eu une inscription.
               other: Il y a eu %{count} inscriptions.
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
+            taxonomies: Taxonomies
           index:
             title: Conférences
           manage_trash:
@@ -416,6 +424,10 @@ fr:
             select_conference_meetings: Sélectionner des rencontres
           index:
             title: Types d'inscription
+          edit:
+            title: Mettre à jour le type d'inscription
+          new:
+            title: Nouveau type d'inscription
         send_conference_diploma_mailer:
           diploma:
             diploma_html: Vous trouverez le certificat de participation à la conférence <a href="%{url}">%{title}</a> dans les pièces jointes.
@@ -425,6 +437,17 @@ fr:
             certificate_of_attendance_description: Ceci certifie que <strong>%{user}</strong> a assisté et participé aux <strong>%{title}</strong> tenus au <strong>%{location}</strong> sur <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Il y a eu un problème lors de l'envoi des certificats de participation à la conférence.
+          success: Certificats de présence à la conférence envoyés avec succès.
+        conference_registrations:
+          index:
+            title: Inscriptions
+        media_links:
+          edit:
+            title: Mettre à jour le lien média
+          index:
+            title: Liens média
+          new:
+            title: Nouveau lien média
       conference:
         registration_confirm:
           cancel: Annuler
@@ -551,10 +574,19 @@ fr:
           confirmed_at: La date à laquelle cette invitation a été confirmée
           created_at: La date à laquelle cette invitation a été créée
           updated_at: La date à laquelle cette invitation a été mise à jour pour la dernière fois
+          accepted_at: La date à laquelle the conference invitation a été accepted
+          conference: La conférence à laquelle cette invitation a été envoyée
+          id: L'identifiant unique de conference invitation
+          registration_type: Le type de registration for this conference that was sent
+          rejected_at: La date à laquelle the conference invitation a été rejected
+          sent_at: La date à laquelle this conference invitation a été sent
         conference_registrations:
           confirmed_at: La date à laquelle cette inscription a été confirmée
           created_at: La date à laquelle cette inscription a été créée
           updated_at: La date à laquelle cette inscription a été mise à jour pour la dernière fois
+          conference: La conférence à laquelle cela appartient
+          id: L'identifiant unique de conference regisrations
+          registration_type: Le type de registration that this belongs to
     events:
       conferences:
         conference_registration_confirmed:
@@ -607,6 +639,28 @@ fr:
         conferences:
           component_settings: Paramètres de fonctionnalité de l'espace conférences
           published_at: La date de publication de cet espace
+          created_at: La date de création de cet espace
+          decidim_scope_id: La portée de la conférence
+          description: Une description longue de la conférence
+          end_date: La date à laquelle this conference ends.
+          follows_count: Le nombre d'utilisateurs suivant cet espace
+          id: L'identifiant unique de la conférence
+          location: Le lieu de la conférence. Où aura lieu la conférence.
+          objectives: Les objectifs de cette conference. What is the goal. Quel est le but.
+          promoted: Si the conference is promoted or not
+          reference: La référence unique de l'espace
+          remote_banner_image_url: L'URL de conference banner image
+          remote_hero_image_url: L'URL de conference hero image
+          scope: La portée de la conférence
+          scopes_enabled: Si les portées sont activées ou non
+          short_description: Une description courte de la conférence
+          slogan: Le slogan pour cette conference
+          slug: Le slug de la conférence (utilisé à des fins d'identification, pour l'URL)
+          start_date: La date à laquelle this conference starts.
+          taxonomies: Les taxonomies de la conférence
+          title: Le titre de la conférence
+          updated_at: La dernière date de mise à jour de cet espace
+          url: L'URL de l'espace
     statistics:
       conferences_count: Conférences
       conferences_count_tooltip: Le nombre de conférences publiées.

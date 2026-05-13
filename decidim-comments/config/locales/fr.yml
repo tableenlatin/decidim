@@ -100,6 +100,9 @@ fr:
           other: Afficher %{count} réponses
         single_comment_link_title: Obtenir le lien
         sort_by: 'Trier par : '
+        replies_count:
+          one: "%{count} réponse"
+          other: "%{count} réponses"
       comment_order_selector:
         order:
           best_rated: Les mieux notés
@@ -145,6 +148,10 @@ fr:
       help:
         comment_votes:
           id: L'id du vote
+          comment: L'identifiant du commentaire qui a été voté
+          created_at: La date à laquelle this vote a été created
+          updated_at: La date à laquelle this vote a été last updated
+          weight: Le poids du vote (1 pour pour, -1 pour contre)
         comments:
           body: Le commentaire lui-même
           commentable_id: L'identifiant unique de l"élément commenté
@@ -154,6 +161,8 @@ fr:
           id: L'identifiant de ce commentaire
           locale: La langue que le participant a utilisé en créant ce commentaire
           root_commentable_url: L'URL de la ressource liée à ce commentaire
+          alignment: Si ce/cette comment était favorable, contre ou neutre
+          author: Le nom de the participant that made this comment
     events:
       comments:
         comment_by_followed_user:

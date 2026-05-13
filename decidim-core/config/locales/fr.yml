@@ -33,6 +33,9 @@ fr:
         details: Commentaires supplémentaires
       taxonomy_filter:
         space_filter: Disponible comme filtre pour
+        internal_name: Étiquette interne
+        name: Étiquette
+        root_taxonomy_id: À partir de la taxonomie
       user:
         about: A propos de moi
         avatar: Avatar
@@ -47,6 +50,10 @@ fr:
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
+      component:
+        taxonomy_filters: Filtres de taxonomie
+      taxonomy:
+        name: Nom de la taxonomie
     errors:
       models:
         user:
@@ -68,6 +75,7 @@ fr:
       decidim/removed_from_group: Retiré du groupe
       decidim/resource_hidden_event: Modération de votre participation
       decidim/welcome_notification_event: Message de bienvenue
+      decidim/resource_liked_event: Ressource aimée
   activerecord:
     attributes:
       decidim/action_log:
@@ -87,9 +95,16 @@ fr:
       decidim/user:
         one: Participant
         other: Participants
+      decidim:
+        history:
+          one: Historique
+          other: Historique
+      decidim/like:
+        one: J'aime
+        other: Mentions « J'aime »
   booleans:
-    'false': 'Non'
-    'true': 'Oui'
+    'false': Non
+    'true': Oui
   date:
     buttons:
       close: Fermer
@@ -163,7 +178,7 @@ fr:
     accessibility:
       external_link: Lien externe
       front_page_link: Aller à la première page
-      logo: "Logo officiel de %{organization}"
+      logo: Logo officiel de %{organization}
       opens_in_new_tab: S'ouvre dans un nouvel onglet
       skip_button: Passer au contenu principal
     account:
@@ -205,7 +220,7 @@ fr:
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse.
     activity:
-      time_ago: "il y a %{time}"
+      time_ago: il y a %{time}
     admin:
       actions:
         cancel: Annuler
@@ -241,6 +256,7 @@ fr:
         restore: "%{user_name} a restauré la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
+        soft_delete: "%{user_name} a déplacé le composant %{resource_name} vers la corbeille dans l'espace %{space_name}"
       contextual_help_section:
         update: "%{user_name} a mis à jour la section d'aide %{resource_name}"
       helpers:
@@ -257,6 +273,9 @@ fr:
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans l'espace %{space_name}"
         unreport: "%{user_name} a annulé le signalement d'une ressource de type %{resource_type} dans l'espace %{space_name}"
+        bulk_hide: "%{user_name} a masqué %{reported_count} ressources"
+        bulk_unhide: "%{user_name} a affiché %{reported_count} ressources"
+        bulk_unreport: "%{user_name} a désignalé %{reported_count} ressources"
       newsletter:
         create: "%{user_name} a créé la newsletter %{resource_name}"
         delete: "%{user_name} a supprimé la newsletter %{resource_name}"
@@ -295,6 +314,9 @@ fr:
         create: "%{user_name} a créé le filtre %{resource_name}"
         delete: "%{user_name} a supprimé le filtre %{resource_name}"
         update: "%{user_name} a mis à jour le filtre %{resource_name}"
+        create_with_filter_info: "%{user_name} a créé le filtre %{resource_name} basé sur la taxonomie « %{taxonomy_name} » avec %{filter_items_count} éléments"
+        delete_with_filter_info: "%{user_name} a supprimé le filtre %{resource_name} basé sur la taxonomie « %{taxonomy_name} » avec %{filter_items_count} éléments"
+        update_with_filter_info: "%{user_name} a mis à jour le filtre %{resource_name} basé sur la taxonomie « %{taxonomy_name} » avec %{filter_items_count} éléments"
       user:
         block: "%{user_name} a bloqué l'utilisateur %{resource_name}"
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
@@ -305,14 +327,27 @@ fr:
         transfer: "%{user_name} a transféré l'utilisateur %{resource_name}"
         unblock: "%{user_name} a débloqué l'utilisateur %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
+        bulk_block: "%{user_name} a bloqué %{blocked_count} utilisateurs"
+        bulk_ignore: "%{user_name} a désignalé %{unreported_users_count} utilisateurs"
+        bulk_unblock: "%{user_name} a débloqué %{unblocked_count} utilisateurs"
       user_group:
         block: "%{user_name} a bloqué le groupe d'utilisateurs %{resource_name}"
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
         unblock: "%{user_name} a débloqué le groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
+        bulk_block: "%{user_name} a bloqué %{blocked_count} utilisateurs"
+        bulk_ignore: "%{user_name} a désignalé %{unreported_users_count} utilisateurs"
+        bulk_unblock: "%{user_name} a débloqué %{unblocked_count} utilisateurs"
       user_moderation:
         unreport: "%{user_name} a annulé le signalement de %{resource_type} - %{unreported_user_name}"
+      taxonomy:
+        create: "%{user_name} a créé la taxonomie %{resource_name}"
+        create_with_parent: "%{user_name} a créé la taxonomie %{resource_name} au sein de la taxonomie %{parent_taxonomy}"
+        delete: "%{user_name} a supprimé la taxonomie %{resource_name}"
+        delete_with_parent: "%{user_name} a supprimé la taxonomie %{resource_name} au sein de la taxonomie %{parent_taxonomy}"
+        update: "%{user_name} a mis à jour la taxonomie %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour la taxonomie %{resource_name} au sein de la taxonomie %{parent_taxonomy}"
     admin_terms_of_service:
       default_body: "<h2>CONDITION D'UTILISATION ADMINISTRATEUR</h2><p>En espérant que vous ayez bien reçu les instructions de l'administrateur système de la plateforme, celles-ci se résument généralement en trois parties :</p><ol><li>Respectez la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>De grands pouvoirs impliquent de grandes responsabilités.</li></ol>"
     alert:
@@ -354,7 +389,10 @@ fr:
             Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
           promoted: Promu comme %{amendable_type}.
-          rejected: "Cet amendement pour la proposition %{amendable_type}\n%{proposal_link}\na été rejeté le <strong>%{date}</strong>."
+          rejected: |-
+            Cet amendement pour la proposition %{amendable_type}
+            %{proposal_link}
+            a été rejeté le <strong>%{date}</strong>.
           withdrawn: |-
             L'amendement pour le %{amendable_type} %{proposal_link}
             a été retiré par l'auteur.
@@ -412,6 +450,9 @@ fr:
         one: commentaire
         other: commentaires
       official_author: Officiel
+      likes:
+        one: j'aime
+        other: j'aime
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de pièce d'identité commençant par "A".
@@ -435,6 +476,7 @@ fr:
           document_number: Numéro du document
           postal_code: Code postal
         name: Exemple d'autorisation éphémère
+        explanation: Faites-vous vérifier en saisissant un numéro de document se terminant par « X ».
       errors:
         duplicate_authorization: Un participant est déjà autorisé avec ces mêmes données. Un administrateur vous contactera pour vérifier vos informations.
       expired_at: Expiré à %{timestamp}
@@ -473,7 +515,7 @@ fr:
           title: L'autorisation est toujours en cours de validation
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
-          invalid_field: "La valeur %{value} du champ %{field} n'est pas valide."
+          invalid_field: La valeur %{value} du champ %{field} n'est pas valide.
           ok: D'accord
           title: Non autorisé
         unconfirmed:
@@ -524,6 +566,8 @@ fr:
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
             taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -619,6 +663,8 @@ fr:
           all: Tout
         filter_scope_values:
           all: Tout
+        filter_taxonomy_values:
+          all: Tous
     devise:
       omniauth_registrations:
         create:
@@ -697,14 +743,24 @@ fr:
           this_application_will_not_be_able_to: 'Cette application ne sera pas capable de :'
           update_profile: Mettre à jour votre profil
           wants_to_use_your_account_html: "%{application_name} veut utiliser votre compte"
+          api_read: Lire le contenu via l'API
     download_your_data:
       export:
         ready: Prêt
       help:
         messaging_conversations:
           updated_at: La date de la dernière mise à jour de cette conversation
+          created_at: La date à laquelle this conversation a été created
+          id: L'identifiant unique pour le/la conversation
+          messages: Les messages de ce/cette conversation
         notifications:
           extra: Informations supplémentaires sur cette notification
+          created_at: La date et l'heure à laquelle the notification a été created
+          event_class: La classe de l'événement qui a déclenché la notification
+          event_name: Le nom de the event that triggered the notification
+          id: L'identifiant unique de la notification
+          resource_type: Le type de resource that the notification is related to
+          updated_at: La date et l'heure à laquelle the notification a été last updated
         participatory_space_members:
           created_at: La date et l'heure de création de ce membre
           id: L'identifiant unique de ce membre
@@ -719,6 +775,7 @@ fr:
           locale: La langue de ce rapport
           reason: La raison de ce rapport
           updated_at: La date et l'heure de la dernière mise à jour de ce rapport
+          moderation: La modération associée à ce/cette report
         users:
           about: La description du profil de ce participant
           accepted_tos_version: La date à laquelle les conditions d'utilisation de cette plateforme ont été acceptées par l'utilisateur
@@ -738,6 +795,43 @@ fr:
           password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
           roles: Le rôle de cet utilisateur s'il en a un
           type: Le type que cet utilisateur a
+          admin: Si cet utilisateur est administrateur
+          confirmation_sent_at: La date et l'heure à laquelle the confirmation a été sent
+          confirmed_at: La date et l'heure à laquelle this user a été confirmed
+          created_at: La date et l'heure à laquelle this user a été created
+          current_sign_in_at: Le/la date and time de current login
+          current_sign_in_ip: L'adresse IP de la connexion actuelle
+          delete_reason: La raison donnée pour la suppression de cet utilisateur
+          invitation_accepted_at: La date et l'heure à laquelle the invitation a été accepted
+          invitation_created_at: La date et l'heure à laquelle this user a été invited
+          invitation_sent_at: La date et l'heure à laquelle the invitation a été sent
+          managed: Si cet utilisateur est géré par un autre utilisateur
+          name: Le nom de ce/cette user
+          notification_settings: Les paramètres de notification que cet utilisateur a sélectionnés
+          notifications_sending_frequency: La fréquence des notifications que cet utilisateur reçoit
+          officialized_at: La date et l'heure à laquelle this user a été officialized
+          organization: L'organisation à laquelle cet utilisateur appartient
+          personal_url: L'URL personnelle de cet utilisateur
+          remember_created_at: La date et l'heure à laquelle the user a été selected to be remembered
+          reset_password_sent_at: La date et l'heure à laquelle the password reset a été sent
+          sign_in_count: Le nombre de fois où cet utilisateur s'est connecté
+          unconfirmed_email: L'adresse e-mail que cet utilisateur n'a pas encore confirmée
+          updated_at: La date et l'heure à laquelle this user a été last updated
+        core:
+          description: Voici les fichiers contenant les données personnelles, contributions et activités de l'utilisateur %{user_name}
+          title: Télécharger vos fichiers de données depuis %{organization}
+        follows:
+          created_at: La date et l'heure à laquelle the follow a été created
+          followable: La ressource ou l'espace suivi
+          id: L'identifiant unique de l'abonnement
+          updated_at: La date et l'heure à laquelle the follow a été last updated
+        identities:
+          created_at: La date et l'heure à laquelle the identity a été created
+          id: L'identifiant unique de l'identité
+          provider: Le fournisseur de ce/cette identity
+          uid: L'identifiant unique de l'identité
+          updated_at: La date et l'heure à laquelle the identity a été last updated
+          user: L'utilisateur auquel ce/cette identity appartient
       show:
         action: Action
         download: Télécharger le fichier
@@ -748,6 +842,12 @@ fr:
         expired: Déjà expiré
         request_data: Requête 
         type: Type de télechargement
+        download_data: Téléchargement des données
+        explanation:
+          body_1: Ces fichiers sont des ensembles de données exportés de votre activité sur cette plateforme, tels que les propositions ou les commentaires. Ils fournissent des données brutes et structurées qui peuvent être utilisées pour l'analyse, la recherche ou l'intégration avec d'autres outils.
+          body_2: Ces fichiers sont au format CSV (Comma-Separated Values), un format de fichier largement utilisé qui peut être ouvert et traité par diverses applications logicielles, notamment les tableurs, les éditeurs de texte et les outils d'analyse de données.
+          title: Quels sont ces fichiers ?
+        files_to_download: Fichiers à télécharger
     editor_images:
       create:
         error: Une erreur est survenue lors du téléchargement de l'image.
@@ -840,7 +940,7 @@ fr:
           notification_title: La fonctionnalité %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
-        email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :'
+        email_intro: "« %{resource_title} » a été mis à jour. Vous pouvez y accéder ici :"
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
         email_subject: Mise à jour de %{resource_title}
       gamification:
@@ -866,6 +966,16 @@ fr:
           notification_title: |-
             Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.</br>
             <i>%{resource_content}</i>
+        parent_hidden:
+          email_intro: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+          email_outro: Vous avez reçu cette notification car vous êtes l'auteur du %{resource_type} concerné.
+          email_subject: Votre %{resource_type} n'est plus visible
+          notification_title: |-
+            Your %{resource_type} is no longer visible.<br>
+            This happened because the proposal, meeting, debate or comment you replied to has been moderated. If it becomes available again, your comment will be automatically restored.
+            <i>%{resource_content}</i>
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -877,6 +987,14 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de l'organisation. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{name} a été officialisé"
           notification_title: Le participant %{name} (%{nickname}) a été officialisé.
+      resource_liked:
+        email_intro: "%{liker_name} %{liker_nickname}, que vous suivez, vient d'aimer « %{resource_title} » et nous pensons que cela pourrait vous intéresser. Consultez-le et contribuez :"
+        email_outro: Vous avez reçu cette notification car vous suivez %{liker_nickname}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+        email_subject: "%{liker_nickname} a effectué un nouveau J'aime"
+        notification_title: Le %{resource_type} <a href="%{resource_path}">%{resource_title}</a> a été aimé par <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
+      resources:
+        soft_deleted:
+          notification_title: Un administrateur a supprimé votre « %{resource_type} » « %{resource_title} ».
     export_mailer:
       download_your_data_export:
         click_button_html: Cliquez sur le lien suivant pour télécharger vos données.<br/>Le fichier sera disponible au téléchargement jusqu'à %{date}.
@@ -927,6 +1045,7 @@ fr:
         help_messages:
         - Seuls les formats d'URL corrects sont acceptés.
         - Veuillez noter que les liens doivent être publics pour que tous les participants puissent y accéder.
+        explanation: Conseils pour les liens de pièces jointes
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -1056,6 +1175,8 @@ fr:
           not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
           not_found: 'Le type de secteur n''a pas été trouvé dans la base de données (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'La taxonomie n''a pas été trouvée dans la base de données (ID : %{id})'
     machine_translations:
       automatic: traduction automatique en %{locale_name}
     managed_users:
@@ -1199,7 +1320,9 @@ fr:
     notifications_settings:
       show:
         administrators: Administrateurs
-        allow_public_contact: "Allow anyone to send me a direct message, even if I do not follow them.\nAutoriser tout le monde à m'envoyer un message direct même si je ne les suis pas."
+        allow_public_contact: |-
+          Allow anyone to send me a direct message, even if I do not follow them.
+          Autoriser tout le monde à m'envoyer un message direct même si je ne les suis pas.
         allow_push_notifications: Recevez des notifications push pour savoir ce qui se passe lorsque vous n'êtes pas sur la plateforme. Vous pouvez les désactiver à tout moment.
         assigned_to_proposal: Je veux recevoir un email quand quelqu'un m'assigne une proposition à évaluer
         direct_messages: Recevoir des messages directs de n'importe qui
@@ -1240,6 +1363,7 @@ fr:
       pending_authorization_active_message: Veuillez remplir le formulaire pour procéder à cette action.
       pending_authorization_active_title: Nous devons vérifier votre identité.
       pending_ephemeral_authorization: Veuillez vérifier votre identité pour continuer.
+      incomplete_authorization_active_title: Votre vérification n'a pas été complétée avec toutes les informations nécessaires.
     open_data:
       help:
         core:
@@ -1249,6 +1373,9 @@ fr:
             one: "%{count} ressource"
             other: "%{count} ressources"
           spaces: Espaces
+          description: Ce fichier ZIP contient des fichiers pour étudier et faire des recherches sur cette plateforme de participation.
+          main: Cœur
+          title: Fichiers Open Data pour %{organization}
         moderated_users:
           about: Le champ "A propos" de l'utilisateur
           block_reasons: La raison pour laquelle l'administrateur a bloqué l'utilisateur
@@ -1274,16 +1401,34 @@ fr:
           id: L'identifiant unique de l'utilisateur
           nickname: Le pseudonyme de l'utilisateur
           profile_url: L'url du profil
+          deleted: Si l'utilisateur est supprimé ou non
+          direct_messages_enabled: Si l'utilisateur autorise les messages directs
+          name: Le nom d'affichage de user
+        taxonomies:
+          children_count: Le nombre de children that this taxonomy has
+          created_at: La date à laquelle this taxonomy a été created
+          filter_items_count: Le nombre de items filters that are using this taxonomy
+          filters_count: Le nombre de filters that is using this taxonomy
+          id: L'identifiant unique de la taxonomie
+          is_root: Vrai si ce/cette taxonomy n'a pas de parent
+          name: Le nom de ce/cette taxonomy
+          parent_id: L'identifiant unique du parent de cette taxonomie (le cas échéant)
+          part_of: Utilisé pour détecter si ce/cette taxonomy fait partie d'un(e) autre taxonomy
+          taxonomizations_count: Le nombre de resources that use this taxonomy
+          updated_at: La date à laquelle this taxonomy a été updated for the last time
+          weight: L'ordre dans lequel ce/cette taxonomy est affiché(e)
       index:
         description: Bienvenue sur la page sur les données ouvertes de %{organization_name}. Ici, vous trouverez des fichiers de données qui sont régulièrement générés à partir de divers processus de délibération et de gouvernance au sein de %{organization_name}. Ces dossiers sont mis à disposition pour promouvoir la transparence, l'accessibilité et la collaboration. Ci-dessous, vous trouverez des informations détaillées sur ce que sont ces fichiers, comment les ouvrir et travailler avec, et une description du contenu et de la structure de chaque fichier.
         detailed:
           components: Fonctionnalités
           spaces: Espaces participatifs
           title: Explication détaillée de chaque fichier
+          body_1: 'Vous trouverez ci-dessous une description de chaque jeu de données, y compris son schéma (structure) et le type d''informations qu''il contient :'
         download:
           components: Fonctionnalités
           spaces: Espaces participatifs
           title: Télécharger les ressources
+          core: Cœur
         download_open_data: Télécharger tous les fichiers de données ouvertes
         download_resource: Télécharger %{resource_name} au format CSV
         explanation:
@@ -1315,6 +1460,9 @@ fr:
           license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
           license_database_link: https://opendatacommons.org/licenses/odbl/1.0/
           title: Licence
+          body_1_html: Cette base de données %{organization_name} est mise à disposition sous %{link_database}. Tous les droits sur les contenus individuels de la base de données sont sous licence %{link_contents}.
+          license_contents_name: Licence des contenus de la base de données
+          license_database_name: Open Database License
         title: Données ouvertes
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
     pad_iframe:
@@ -1573,6 +1721,7 @@ fr:
       surveys_count: Enquêtes
       users_count: Participants
       users_count_tooltip: Le nombre total d'utilisateurs qui se sont inscrits et ont confirmé leur compte par e-mail.
+      likes_count: Mentions « J'aime »
     taxonomies:
       prompt: Veuillez sélectionner une option
     translation_bar:
@@ -1585,7 +1734,7 @@ fr:
     user_contact_disabled: Cet utilisateur n'accepte pas les messages directs.
     user_conversations:
       index:
-        time_ago: "il y a %{time}"
+        time_ago: il y a %{time}
     user_group_mailer:
       notify_deprecation_to_member:
         body_1: 'Nous sommes en contact avec vous pour vous informer d''une mise à jour importante du groupe d''utilisateurs dont vous faites partie : <strong>%{group_name}</strong>.'
@@ -1656,6 +1805,23 @@ fr:
       wizard_header:
         see_steps: voir les étapes
         step_of: Étape %{current_step} sur %{total_steps}
+    like_buttons_cell:
+      already_liked: Annuler le J'aime
+      like: J'aime
+    likes_list:
+      liked_by:
+        one: Aimé par %{visible}
+        other: Aimé par %{visible} et %{others}
+      others: "%{count} de plus"
+      title: Aimé par
+      you: vous
+    resource:
+      controls_label: Contrôles de ressource
+    resource_likes:
+      create:
+        error: Un problème est survenu lors de l'action J'aime.
+    tags:
+      filter_results_for_taxonomy: 'Filtrer les résultats pour : %{resource}'
   devise:
     confirmations:
       confirmed: Votre adresse e-mail a été confirmée avec succès.
@@ -1667,11 +1833,11 @@ fr:
       already_authenticated: Vous êtes déjà connecté.
       csrf_token: Impossible de vérifier votre demande. Veuillez réessayer.
       inactive: Votre compte n'est pas encore activé.
-      invalid: '%{authentication_keys} ou mot de passe invalide.'
+      invalid: "%{authentication_keys} ou mot de passe invalide."
       invited: Vous avez une invitation en attente, acceptez-la pour terminer la création de votre compte.
       last_attempt: Vous avez encore une tentative avant que votre compte soit verrouillé.
       locked: Votre compte est bloqué.
-      not_found_in_database: '%{authentication_keys} ou mot de passe invalide.'
+      not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
       timeout: Votre session a expiré, veuillez vous reconnecter pour continuer.
       unauthenticated: Vous devez vous connecter ou créer un compte pour continuer.
     invitations:
@@ -1705,8 +1871,7 @@ fr:
         accept_until: Cette invitation expirera le %{due_date}.
         decline: Refuser l'invitation
         hello: Bonjour %{email},
-        ignore: |-
-          Si vous n’acceptez pas l’invitation, veuillez ignorer ce courrier électronique.<br />Votre compte ne sera pas créé tant que vous n’aurez pas accédé au lien ci-dessus et que vous n’aurez pas configuré votre pseudo et votre mot de passe.
+        ignore: Si vous n’acceptez pas l’invitation, veuillez ignorer ce courrier électronique.<br />Votre compte ne sera pas créé tant que vous n’aurez pas accédé au lien ci-dessus et que vous n’aurez pas configuré votre pseudo et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_member: "%{invited_by} vous a invité en tant que membre de %{application}. Vous pouvez accepter cette invitation via le lien ci-dessous."
         someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
@@ -1901,7 +2066,7 @@ fr:
       not_locked: n'était pas verrouillé
       not_saved:
         one: 'Une erreur est survenue pendant le traitement de votre requête:'
-        other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
+        other: Plusieurs erreurs sont survenues pendant le traitement de votre requête.
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (le minimum est de %{count} caractères)
@@ -1995,6 +2160,7 @@ fr:
         main_menu: Menu principal
         mobile_account_greeting: Bonjour %{user_name},
         user_menu: Menu utilisateur
+        confirm_close_ephemeral_session: Si vous quittez cette page, votre session temporaire sera fermée. Cependant, toute votre progression et votre activité seront enregistrées. Si vous avez terminé votre activité, cliquez sur OK.
       impersonation_warning:
         close_session: Fermer la session
         description_html: Vous agissez en tant que l'utilisateur <b>%{user_name}</b>.

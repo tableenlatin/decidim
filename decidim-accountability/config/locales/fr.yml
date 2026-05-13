@@ -67,9 +67,11 @@ fr:
             new_items_projects:
               one: 1 projet sélectionné sera importé
               other: "%{count} projets sélectionnés seront importés"
+              zero: Aucun projet sélectionné dans ce composant d'origine
             new_items_proposals:
               one: 1 proposition sera importée
               other: "%{count} propositions seront importées"
+              zero: Aucune proposition dans ce composant d'origine
             proposal_state: Statut de la proposition
             select_state: Sélectionnez le statut
           form:

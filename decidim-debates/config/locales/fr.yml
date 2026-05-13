@@ -34,6 +34,7 @@ fr:
           comment: Commenter
           create: Créer un débat
           vote_comment: Vote sur le commentaire
+          like: J'aime
         name: Débats
         settings:
           global:
@@ -42,10 +43,16 @@ fr:
             comments_enabled: Commentaires activés
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             taxonomy_filters_add: Ajouter un filtre
+            clear_all: Tout effacer
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
+            taxonomy_filters: Sélectionner les filtres du composant
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
             creation_enabled: Les participants peuvent créer des débats
+            likes_blocked: Mentions « J'aime » bloquées
+            likes_enabled: Mentions « J'aime » activées
     debates:
       actions:
         close: Fermer
@@ -77,6 +84,9 @@ fr:
               comments_layout_locked: Vous ne pouvez pas modifier la mise en page des commentaires une fois que les commentaires ont été publiés.
             finite: Limité (Avec les heures de début et de fin)
             open: Ouvert (pas de date de début et de fin)
+            comments_visualization: Affichage des commentaires
+            single_column: 'Une seule colonne : les commentaires sont affichés par ordre chronologique et peuvent avoir des réponses.'
+            two_columns: 'Deux colonnes : les commentaires sont affichés sous les colonnes « Pour » et « Contre » et ne peuvent pas avoir de réponses.'
           index:
             title: Débats
           manage_trash:
@@ -95,6 +105,8 @@ fr:
           close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
           create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
+          restore: "%{user_name} a restauré le débat %{resource_name} dans l'espace %{space_name}"
+          soft_delete: "%{user_name} a déplacé le débat %{resource_name} de l'espace %{space_name} vers la corbeille"
       content_blocks:
         highlighted_debates:
           name: Débats
@@ -175,6 +187,7 @@ fr:
             start: Début
             start_time: Date de début
             title: Titre
+            taxonomies: Taxonomies
     download_your_data:
       show:
         debate_comments: Export des commentaires des débats
@@ -236,6 +249,12 @@ fr:
           body: Le commentaire lui-même
           created_at: La date de création de ce commentaire
           id: L'identifiant de ce commentaire
+          alignment: Si ce/cette comment était favorable, contre ou neutre
+          commentable_id: L'identifiant unique de commentable
+          commentable_type: Le type de commentable (if it was a result, a proposal, etc.)
+          depth: La position de ce/cette comment dans l'arborescence des comments (s'il s'agit d'une réponse ou d'une réponse à une réponse)
+          locale: La locale (langue) du participant lorsqu'il a laissé ce/cette comment
+          root_commentable_url: L'URL de resource that ties to this comment
         debates:
           closed_at: La date de clôture de ce débat
           conclusions: Les conclusions du débat s'il est clos
@@ -246,6 +265,20 @@ fr:
           last_comment_by: Les données du dernier commentaire du débat
           title: Le titre du débat
           updated_at: La date de la dernière mise à jour du débat
+          author: Les données de l'auteur de cette debate
+          comments: Le nombre de les commentaires que ce/cette debate a
+          comments_enabled: Si this debate has comments enabled or not
+          component: Le composant auquel le débat est rattaché
+          end_time: Quand ce/cette debate se termine, s'il s'agit d'un(e) debate ouvert(e) avec une durée limitée
+          information_updates: Les mises à jour que l'auteur a apportées à ce/cette debate
+          instructions: Quelles sont les instructions pour commenter dans ce/cette debate
+          last_comment_at: La date à laquelle this debate a été commented by the last time
+          likes_count: Le nombre de likes the debate has
+          participatory_space: L'espace (par ex. processus participatif ou assemblée) auquel ce/cette debate appartient
+          reference: L'identifiant unique de resource in this platform
+          start_time: Quand ce/cette debate commence, s'il s'agit d'un(e) debate ouvert(e) avec une durée limitée
+          taxonomies: Les taxonomies du projet
+          url: L'URL où ce/cette debate peut être trouvé(e)
     statistics:
       debates_count: Débats
       debates_count_tooltip: Le nombre de discussions tenues.

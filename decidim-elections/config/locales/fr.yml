@@ -45,6 +45,7 @@ fr:
         title: Actions
         view: Voir l'élection
         view_deleted_elections: Voir les élections supprimées
+        confirm_unpublish_election: Êtes-vous sûr de vouloir dépublier cette élection ?
       admin:
         census:
           edit:
@@ -65,6 +66,9 @@ fr:
             published_results_at: Résultats publiés à
             start_at: 'Heure de début:'
             title: Calendrier
+            end_election: Terminer l'élection
+            manual_start: Manuel
+            start_election: Démarrer l'élection
           census:
             title: Recensement
           main:
@@ -74,11 +78,13 @@ fr:
               image: Galerie d'images
               results: Disponibilité des résultats
               title: Titre
+            title: Principal
           publish_confirm: Êtes-vous sûr(e) de vouloir publier cette élection ?
           questions:
             labels:
               answers: Réponses
             title: Questions
+            limit_info: Cette élection comporte plus de questions. L'aperçu est limité à 3 questions.
           questions_table:
             answer: Réponses
             percentage: Pourcentage
@@ -91,6 +97,12 @@ fr:
             not_started: L'élection n'a pas encore commencé.
             publish_button: Publier les résultats
             title: Résultats
+            per_question_waiting: Le vote n'est encore activé pour aucune question. Les participants verront un message « En attente de la question suivante » jusqu'à ce que vous en activiez au moins une.
+            results_availability:
+              after_end: Vous pouvez publier tous les résultats après la fin de l'élection. Les résultats resteront masqués jusqu'à ce que vous les publiiez manuellement.
+              per_question: Vous devez activer le vote et publier manuellement les résultats pour chaque question individuellement.
+              real_time: Les résultats sont affichés automatiquement pendant l'élection.
+            start_question_button: Activer le vote
           status:
             allow_census_check_before_start: Autoriser les utilisateurs à vérifier s'ils peuvent voter avant le début de l'élection
             census: 'Recensement:'
@@ -122,8 +134,12 @@ fr:
               per_question: Question par question
               real_time: Temps réel
               title: Disponibilité des résultats
+              after_end_help: publier les résultats à la fin de l'élection
+              per_question_help: gérer manuellement le vote et publier les résultats pour chaque question
+              real_time_help: publier automatiquement les résultats pendant l'élection durant le vote
             save: Enregistrer et continuer
             start_at: Heure de début
+            calendar_description: Vérifiez que le fuseau horaire de l'organisation est correct dans les paramètres de l'organisation. La configuration actuelle est %{timezone}.
           index:
             title: Élections
           manage_trash:
@@ -156,7 +172,17 @@ fr:
         statuses:
           publish_results:
             invalid: Un problème est survenu lors de la publication des résultats.
+            success: Résultats publiés avec succès.
           unknown: État Inconnu
+          enable_voting:
+            invalid: Un problème est survenu lors de l'activation du vote.
+            success: Vote activé avec succès.
+          end:
+            invalid: Un problème est survenu lors de la fin de l'élection.
+            success: Élection terminée avec succès.
+          start:
+            invalid: Un problème est survenu lors du démarrage de l'élection.
+            success: Élection démarrée avec succès.
       admin_log:
         election:
           create: "%{user_name} a créé l'élection %{resource_name} dans %{space_name}"
@@ -182,6 +208,7 @@ fr:
           internal_type_title: Autorisations supplémentaires requises pour voter (facultatif)
           sign_in_description: Connectez-vous pour voter durant cette élection
           sign_up_description: Créer un compte pour voter durant cette élection
+          label: Participants inscrits (dynamique)
         internal_users_form:
           authorization_options_invalid: Malheureusement, bien que vous ayez toutes les autorisations requises, certaines d'entre elles ne sont pas valides pour cette élection.
           exit_button: Quitter l'isoloir
@@ -198,12 +225,18 @@ fr:
             Les colonnes doivent être séparées par un point-virgule (;)
           upload_file: Déposer un fichier
           upload_new_census: Déposer un fichier CSV
+          label: Participants non inscrits avec jetons (fixe)
+          remove_before_upload: Si vous souhaitez téléverser un nouveau recensement, vous devez d'abord supprimer l'existant.
         token_csv_form:
           email: Email
           email_placeholder: Entrez l'adresse e-mail de l'électeur
           invalid: L'email ou le jeton n'est pas valide. Veuillez vérifier les détails et réessayer.
           token: Jeton
           token_placeholder: Entrez le jeton du votant
+        census_ready_html: Les données du recensement sont téléversées et préparées pour leur utilisation dans l'élection <b>%{election_title}</b>.
+        census_size_html:
+          one: Il y a actuellement <strong>1</strong> personne éligible pour voter à cette élection (cela peut changer dans un recensement dynamique).
+          other: Il y a actuellement <strong>%{count}</strong> personnes éligibles pour voter à cette élection (cela peut changer dans un recensement dynamique).
       elections:
         count:
           elections_count:
@@ -269,6 +302,8 @@ fr:
         ongoing: En cours
         published_results: Résultats publiés
         unpublished: Non publié
+        scheduled: Planifié
+        voting_enabled: Vote en cours
       votes:
         cast:
           invalid: Il y a eu un problème lors de votre vote. Veuillez vérifier les informations que vous avez fournies et réessayer.
@@ -306,3 +341,6 @@ fr:
     decidim:
       election_votes_header:
         exit: Fermer
+  time:
+    formats:
+      short_with_time: "%-d %b %Y, %H:%M"

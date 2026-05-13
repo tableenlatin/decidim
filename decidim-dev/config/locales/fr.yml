@@ -34,12 +34,16 @@ fr:
               bar: Seuil
               baz: Baz
               foo: Foo
+            clear_all: Tout effacer
+            test_add: Ajouter un test
           step:
             readonly_step_attribute: Attribut étape en lecture seule
             test_options:
               bar: Seuil
               baz: Baz
               foo: Foo
+            likes_blocked: Mentions « J'aime » bloquées
+            likes_enabled: Mentions « J'aime » activées
     dummy:
       admin:
         exports:

@@ -108,6 +108,7 @@ fr:
           destroy: Supprimer
           update: Mettre à jour
           vote_comment: Vote sur le commentaire
+          like: J'aime
         name: Actualités
         settings:
           global:
@@ -123,6 +124,8 @@ fr:
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
+            likes_blocked: Mentions « J'aime » bloquées
+            likes_enabled: Mentions « J'aime » activées
     events:
       blogs:
         post_created:
@@ -139,6 +142,10 @@ fr:
           commentable_id: L'identifiant unique du commentaire
           created_at: La date de création de ce commentaire
           id: L'id de ce commentaire
+          commentable_type: Le type de commentable (if it was a result, a proposal, etc.)
+          depth: La position de ce/cette comment dans l'arborescence des comments (s'il s'agit d'une réponse ou d'une réponse à une réponse)
+          locale: La locale (langue) du participant lorsqu'il a laissé ce/cette comment
+          root_commentable_url: L'URL de resource that ties to this comment
         posts:
           body: Le corps de l'article
           comments_count: Le nombre de commentaires sur cet article
@@ -149,6 +156,10 @@ fr:
           title: Le titre de l'article
           updated_at: La dernière date de mise à jour de cet article
           url: L'URL de cet article
+          author: Les informations de l'auteur
+          follows_count: Le nombre de les abonnements que ce/cette post a
+          likes_count: Le nombre de likes que ce/cette post a
+          participatory_space: L'espace (par ex. processus participatif ou assemblée) auquel ce/cette post appartient
     statistics:
       posts_count: Articles
       posts_count_tooltip: Le nombre de mises à jour ou d'articles de blog publiés.

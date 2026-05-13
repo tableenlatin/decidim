@@ -179,6 +179,8 @@ fr:
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             taxonomy_filters_add: Ajouter un filtre
             terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les auteurs de rencontres
+            clear_all: Tout effacer
+            taxonomy_filters: Sélectionner les filtres du composant
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
@@ -192,6 +194,7 @@ fr:
           rejected_at: La date et l'heure auxquelles cette invitation a été rejetée
           sent_at: La date et l'heure auxquelles cette invitation a été envoyée
           updated_at: La date et l'heure auxquelles cette invitation a été mise à jour
+          meeting: La réunion où cette invitation a eu lieu
         registrations:
           code: Le code d'inscription
           created_at: La date et l'heure auxquelles cette inscription a été créée
@@ -199,6 +202,8 @@ fr:
           public_participation: Si cette participation était affichée publiquement
           updated_at: La date et l'heure auxquelles cette inscription a été mise à jour
           validated_at: La date et l'heure auxquelles cette inscription a été validée
+          meeting: La réunion à laquelle l'utilisateur s'est inscrit
+          user: L'utilisateur qui a effectué l'inscription
       show:
         meeting_comments: Export des commentaires de rencontre
         meetings: Export des rencontres
@@ -256,6 +261,11 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez la réunion %{resource_title} . Vous pouvez cesser de la suivre à partir du lien précédent.
           email_subject: La réunion "%{resource_title}" débutera dans moins de %{reminders_before_hours}h.
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> commencera dans moins de %{reminders_before_hours}h.
+        registration_marked_as_attendee:
+          email_intro: Votre inscription à la réunion « %{resource_title} » a été marquée comme présente.
+          email_outro: Vous avez reçu cette notification car votre inscription à la réunion « %{resource_title} » a été marquée comme présente.
+          email_subject: Votre inscription à la réunion « %{resource_title} » a été marquée comme présente
+          notification_title: Votre inscription à la réunion <a href="%{resource_path}">%{resource_title}</a> a été marquée comme présente.
     forms:
       meetings:
         attendees_count_help_text: N'oubliez pas d'inclure le nombre total de participants à votre réunion, que ce soit en personne, en ligne ou hybride.
@@ -346,6 +356,7 @@ fr:
           index:
             invites: Invitations
             registrations_disabled: Vous ne pouvez pas inviter un participant car les inscriptions sont désactivées.
+            title: Inviter un participant
         meeting_closes:
           edit:
             close: Clore
@@ -390,6 +401,7 @@ fr:
               actions: Actions
               component: Espaces liés
             title: Espaces liés
+            restricted_space_warning: Les espaces liés ne seront pas appliqués lorsque la réunion appartient à un espace restreint.
           manage_trash:
             title: Rencontres supprimées
           new:
@@ -442,6 +454,7 @@ fr:
         registrations:
           edit:
             save: Sauvegarder
+            title: Inscriptions
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité.
             invites: Invitations
@@ -466,6 +479,9 @@ fr:
           validate_registration_code:
             invalid: Ce code d'inscription est invalide.
             success: Code d'inscription validé avec succès.
+          mark_attendee:
+            invalid: Inscription déjà marquée comme présente.
+            success: Inscription marquée comme présente avec succès.
       admin_log:
         invite:
           create: "%{user_name} a invité %{attendee_name} à rejoindre la réunion %{resource_name} sur l'espace %{space_name}"
@@ -643,8 +659,8 @@ fr:
             validated: Validé
             validation_pending: EN ATTENTE DE VALIDATION
           remaining_slots:
-            one: "Il reste %{count} place"
-            other: "Il reste %{count} places"
+            one: Il reste %{count} place
+            other: Il reste %{count} places
           visit_finished: Consulter l’historique des rencontres
           waitlist:
             description: Si une place devient disponible, nous traiterons automatiquement votre inscription et vous en aviserons par courriel.
@@ -769,6 +785,10 @@ fr:
           depth: L'endroit où ce commentaire se trouve dans l'arborescence des commentaires (si c'est une réponse ou une réponse à une réponse)
           id: L'identifiant de ce commentaire
           locale: La langue que le participant a utilisé en créant ce commentaire
+          alignment: Si ce/cette comment était favorable, contre ou neutre
+          commentable_id: L'identifiant unique de commentable
+          commentable_type: Le type de commentable (if it was a result, a proposal, etc.)
+          root_commentable_url: L'URL de resource that ties to this comment
         meetings:
           address: L'adresse de la rencontre au cas où elle se déroule en présentiel
           attachments: Le nombre de pièces jointes dans cette rencontre
@@ -819,6 +839,7 @@ fr:
           video_url: Enregistrement vidéo de la rencontre
           withdrawn: Si cette rencontre a été annulée
           withdrawn_at: Quand cette rencontre a été retirée
+          iframe_access_level: Le niveau d'accès iframe de la réunion
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées

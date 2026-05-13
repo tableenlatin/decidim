@@ -66,7 +66,9 @@ fr:
         weight: Rang d'affichage
       assembly_user_role:
         email: E-mail
-        name: "Nom\n"
+        name: 'Nom
+
+          '
         role: Fonction
     errors:
       models:
@@ -168,6 +170,7 @@ fr:
           members: Membres
           moderations: Modérations
           see_assembly: Voir l'assemblée
+          landing_page: Mise en page de la page d'accueil
       models:
         assembly:
           fields:
@@ -264,6 +267,8 @@ fr:
             title: Assemblées supprimées
           new:
             title: Nouvelle assemblée
+          edit:
+            title: À propos de cette assemblée
         assembly_duplicates:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
@@ -411,6 +416,29 @@ fr:
           subtitle: Le sous-titre de l'assemblée
           target: La cible de l'assemblée
           title: Le titre de l'assemblée
+          area: Le domaine de l'assemblée
+          creation_date: The date of creation of this assembly
+          decidim_scope_id: La portée de l'assemblée
+          developer_group: Le groupe de développement de l'assemblée
+          facebook_handler: Identifiant de réseau social pour Facebook
+          github_handler: Identifiant de réseau social pour GitHub
+          included_at: La date à laquelle the assembly a été included
+          instagram_handler: Identifiant de réseau social pour Instagram
+          meta_scope: Les métadonnées de portée de l'assemblée
+          participatory_scope: La portée participative de l'assemblée
+          participatory_structure: La structure participative de l'assemblée
+          reference: La référence unique de l'espace
+          remote_banner_image_url: L'URL de assembly banner image
+          remote_hero_image_url: L'URL de assembly hero image
+          scope: La portée de l'assemblée
+          scopes_enabled: Si les portées sont activées ou non
+          slug: Le slug de l'assemblée (utilisé à des fins d'identification, pour l'URL)
+          special_features: Quelles fonctionnalités spéciales cette assembly possède
+          taxonomies: Les taxonomies du projet
+          twitter_handler: Identifiant de réseau social pour Twitter
+          updated_at: La dernière date de mise à jour de cet espace
+          url: L'URL de l'espace
+          youtube_handler: Identifiant de réseau social pour YouTube
     participatory_processes:
       show:
         related_assemblies: Assemblées associées
