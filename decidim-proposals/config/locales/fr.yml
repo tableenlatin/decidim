@@ -882,7 +882,7 @@ fr:
         show:
           answer: Répondre
           changes_at_title: Amendement de "%{title}"
-          edit_proposal:
+          edit_proposal: Modifier la proposition
           estimated_cost: Coût estimé
           hidden_likes_count:
             one: et %{count} personne de plus
