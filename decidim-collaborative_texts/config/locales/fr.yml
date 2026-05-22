@@ -157,6 +157,13 @@ fr:
             comments_blocked: Commentaires bloqués
           step:
             announcement: Message d'annonce
+    events:
+      collaborative_texts:
+        suggestion_accepted:
+          email_intro: Une suggestion que vous avez proposée a été acceptée dans le texte collaboratif « %{resource_title} ».
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur d'une suggestion acceptée. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet « Mon compte » > « Paramètres des notifications ».
+          email_subject: Votre suggestion a été acceptée dans %{resource_title}
+          notification_title: Votre suggestion a été acceptée dans le texte collaboratif <a href="%{resource_path}">%{resource_title}</a>.
     statistics:
       all_collaborative_texts_count: Tous les textes collaboratifs
       collaborative_texts_count: Textes collaboratifs
